@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210616023556) do
+ActiveRecord::Schema.define(version: 20210616080929) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "postal_code"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20210616023556) do
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -34,8 +35,10 @@ ActiveRecord::Schema.define(version: 20210616023556) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "item_id"
+    t.integer  "customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -72,6 +75,7 @@ ActiveRecord::Schema.define(version: 20210616023556) do
     t.text     "introduction"
     t.boolean  "is_status",    default: true, null: false
     t.string   "image_id"
+    t.integer  "genres_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -81,6 +85,8 @@ ActiveRecord::Schema.define(version: 20210616023556) do
     t.integer  "order_status", default: 0, null: false
     t.integer  "price"
     t.integer  "total_price"
+    t.integer  "item_id"
+    t.integer  "order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -93,6 +99,7 @@ ActiveRecord::Schema.define(version: 20210616023556) do
     t.integer  "total_cost"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "customer_id"
   end
 
 end
