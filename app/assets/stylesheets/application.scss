@@ -16,3 +16,24 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-image: linear-gradient(to top, #ffffff, #cf8ac4);
+  background-repeat: no-repeat;
+}
+
+#logo {
+  margin: 20px;
+}
+
+footer {
+  height: 100px;
+  background-image: linear-gradient(to bottom, #ffffff, #cf8ac4);
+  background-repeat: no-repeat;
+}

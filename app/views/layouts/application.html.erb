@@ -9,6 +9,42 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to root_path do %>
+        <img id="logo" src="/assets/logo.png" alt="ながのケーキ">
+      <% end %>
+
+      <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          <li><%= link_to "about", homes_about_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "Items", items_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "Sign up", new_customer_registration_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "Log in", destroy_customer_session_path, class:"btn nav-btn" %></li>
+        <% elsif admin_signed_in? %>
+          <li><%= link_to "商品一覧", homes_about_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "会員一覧", items_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "注文履歴一覧", new_customer_registration_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "ジャンル一覧", destroy_customer_session_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path, class:"btn nav-btn" %></li>
+        <% else %>
+          <li><%= link_to "about", homes_about_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "Items", items_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "Sign up", new_customer_registration_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "Log in", new_customer_session_path, class:"btn nav-btn" %></li>
+        <% end %>
+      </ul>
+    </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer>
+      <div>
+        長野県XX市XX町2－7－５４</br>
+        Nagano Cake 本店
+      </div>
+      <div>
+       Copyright © Nagano Cake inc. All Rights Reserved.
+      </div>
+    </footer>
   </body>
 </html>
