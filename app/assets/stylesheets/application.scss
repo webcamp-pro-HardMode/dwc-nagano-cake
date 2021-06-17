@@ -24,16 +24,67 @@
 }
 
 header {
-  background-image: linear-gradient(to top, #ffffff, #cf8ac4);
+  height: 150px;
+  background-image: linear-gradient(to top, #ffffff, #ff1493);
   background-repeat: no-repeat;
+  display: flex;
 }
 
 #logo {
-  margin: 20px;
+  margin: 10px 10px 10px 20px;
+  width: 300px;
+}
+
+.navigation {
+  padding: 40px;
+  margin: 0 0 0 auto;
+  text-align: center;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.btn {
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 35px;
+  width: 140px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.mainvisual {
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  width: 90%;
+  background-image: image-url('cake02.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.btn:hover {
+  border-color: #fff;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: transparent;
+  outline-offset: 12px;
+  text-shadow: 2px 2px 3px #fff;
 }
 
 footer {
   height: 100px;
-  background-image: linear-gradient(to bottom, #ffffff, #cf8ac4);
+  background-image: linear-gradient(to bottom, #ffffff, #ff1493);
   background-repeat: no-repeat;
 }
