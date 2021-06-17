@@ -1,12 +1,9 @@
-<div class="progress" style="height: 400px;">
-  <div class="col ">
-  <h3>ジャンル編集</h3>
-  <div class="row d-flex justify-content-start">
-    <%= form_with model:@genre, url: admin_genre_path(@genre.id) , local:true do |f| %>
-        <lavel>ジャンル</lavel>
-        <%= f.text_field :name %>
-        <%= f.submit '変更を保存',class: "btn btn-success" %>
-    <% end %>
-  </div>
-  </div>
+<div class="container" style="height:400px;">
+  <h3 class="mb-5">ジャンル編集</h3>
+    <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
+  <p>ジャンル名
+    <span class="mx-4"><%= f.text_field :name %></span>
+    <span class="mx-4"><%= f.submit '変更を保存', class: "glyphicon glyphicon-pencil btn btn-success" %></span>
+    </p>
+  <% end %>
 </div>
