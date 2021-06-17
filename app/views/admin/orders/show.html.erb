@@ -31,7 +31,8 @@
         銀行振り込み
         <!--<%#= .payment_method %>-->
       </div>
-      
+
+
       <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
         <div class="col-3">
           注文ステータス
@@ -43,7 +44,8 @@
         <%= f.submit "変更" class: "btn btn-success" %>
         </div>
       <% end %>
-      
+
+
       <div class="col-9">
         <table class='table table-hover table-inverse'>
           <thead>
@@ -100,6 +102,7 @@
           </div>
         </div>
       </div>
-    </div>    
+    </div>
+    </div>
   </div>
 </div>
