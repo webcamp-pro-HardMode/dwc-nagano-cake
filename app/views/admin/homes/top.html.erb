@@ -1,2 +1,32 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container-lg">
+  <div class='row'>
+    <div class='col-xl-10'>
+      <h3>注文履歴一覧</h3>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--<%# @orders.each do |order| %>-->
+          <tr>
+            <td>2019/11/20 23:55:12</td>
+            <!--<%#= link_to .created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path() %>-->
+            <td>スパイダーマン</td>
+            <!--<%#= .%>-->
+            <td>500</td>
+            <!--<%# order.order_items.quantity %>-->
+            <td>入金待ち</td>
+            <!--<%# order.status %>-->
+          </tr>
+          <!--<%# end %>-->
+        </tbody>
+      </table>
+    </div>
+    <!--<div class="text-center"><%# paginate@    %></div>-->
+  </div>
+</div>
