@@ -1,2 +1,8 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h2>編集画面</h2>
+      <%= render 'item_form', item: @item, genres: @genres %>
+    </div>
+  </div>
+</div>
