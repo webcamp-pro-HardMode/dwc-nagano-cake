@@ -3,7 +3,7 @@
   <h3>ジャンル編集</h3>
   <div class="row">
     <%= form_with model:@genre, url: admin_genre_path(@genre.id) , local:true do |f| %>
-        <lavel>ジャンル名</lavel>
+        <lavel>ジャンル</lavel>
         <%= f.text_field :name %>
         <%= f.submit '変更を保存',class: "btn btn-success" %>
     <% end %>
