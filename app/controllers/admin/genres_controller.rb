@@ -9,6 +9,5 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-
   end
 end
