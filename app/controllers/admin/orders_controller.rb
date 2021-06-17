@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
   def show
+    @order = Order.find(params[:id])
   end
 
   def update
@@ -7,9 +8,9 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     redirect_back(fallback_location: root_path)
   end
-  
+
   private
-  
+
   def order_params
      params.require(:order).permit(:status)
   end
