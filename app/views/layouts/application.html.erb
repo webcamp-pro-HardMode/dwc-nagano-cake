@@ -14,7 +14,7 @@
         <img id="logo" src="/assets/logo.png" alt="ながのケーキ">
       <% end %>
 
-      <ul class="navbar-nav ml-auto">
+      <ul class="navigation">
         <% if customer_signed_in? %>
           <li><%= link_to "about", homes_about_path, class:"btn nav-btn" %></li>
           <li><%= link_to "Items", items_path, class:"btn nav-btn" %></li>
@@ -39,10 +39,10 @@
     </main>
     <footer>
       <div>
-        長野県XX市XX町2－7－５４</br>
+        長野県XX市XX町x-xx</br>
         Nagano Cake 本店
       </div>
-      <div>
+      <div class="copyright">
        Copyright © Nagano Cake inc. All Rights Reserved.
       </div>
     </footer>
