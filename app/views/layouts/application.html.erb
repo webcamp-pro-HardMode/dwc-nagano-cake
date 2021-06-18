@@ -19,7 +19,7 @@
           <li><%= link_to "about", homes_about_path, class:"btn nav-btn" %></li>
           <li><%= link_to "Items", items_path, class:"btn nav-btn" %></li>
           <li><%= link_to "Sign up", new_customer_registration_path, class:"btn nav-btn" %></li>
-          <li><%= link_to "Log in", new_customer_session_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"btn nav-btn" %></li>
         <% elsif admin_signed_in? %>
           <li><%= link_to "商品一覧", admin_items_path, class:"btn nav-btn" %></li>
           <li><%= link_to "会員一覧", admin_customers_path, class:"btn nav-btn" %></li>

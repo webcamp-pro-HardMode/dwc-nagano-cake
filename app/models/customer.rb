@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
 KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
 
 
-  validates :fast_name, presence: true
+  validates :first_name, presence: true
   validates :family_name, presence: true
   validates :kana_sei, presence: true, format: { with: KATAKANA_REGEXP, message: "全角カタカナのみで記入してください"}
   validates :kana_mei, presence: true, format: { with: KATAKANA_REGEXP, message: "全角カタカナのみで記入してください"}

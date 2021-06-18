@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     when Admin
       orders_path
     when Customer
-      root_path
+      customers_my_page_path
     end
   end
 
