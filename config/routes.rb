@@ -9,17 +9,18 @@ Rails.application.routes.draw do
   scope module: :public do
     root to:  'homes#top'
     get '/homes/about' => 'homes#about'
+    resources :addressess ,only: [ :index,:create,:update,:destroy,:edit]
     resources :items, only: [:index, :show]
     resources :cart_items ,only: [ :index,:create,:update,:destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :orders, only: [ :show, :index, :create, :new]
     get '/orders/after' =>  'orders#after'
     post '/orders/confirm' =>  'orders#confirm'
-    resource :customers, only: [ :edit, :update]
+    resource :customers, only: [ :update]
+    get "/customers/my_page/edit", to: 'customers#edit', as: :edit_mypage
     get '/customers/my_page' => 'customers#show'
     patch '/customers/withdraw' => 'customers#withdraw'
     get '/customers/change' => 'customers#change'
-    resources :addressess ,only: [ :index,:create,:update,:destroy,:edit]
   end
 
   # 管理者

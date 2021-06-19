@@ -1,2 +1,65 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container">
+  <h1>マイページ</h1>
+
+  <div class="row">
+      <h3>登録情報</h3>&emsp;&emsp;
+      <%= link_to "編集する", edit_mypage_path, class: "btn btn-sm btn-success w-auto" %></br>
+  </div></br>
+
+  <div class="data">
+    <table class="table table-bordered table-hover table-responsive">
+      <tbody>
+        <tr>
+          <td class="table-secondary">氏名</td>
+          <td>
+            <%= current_customer.family_name %>
+            <%= current_customer.first_name %>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-secondary">カナ</td>
+          <td>
+            <%= current_customer.kana_sei %>
+            <%= current_customer.kana_mei %>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-secondary">郵便番号</td>
+          <td>
+            <%= current_customer.postal_code %>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-secondary">住所</td>
+          <td>
+            <%= current_customer.address %>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-secondary">電話番号</td>
+          <td>
+            <%= current_customer.phone_number %>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-secondary">メールアドレス</td>
+          <td>
+            <%= current_customer.email %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <h5>配送先</h5>&emsp;&emsp;
+    <%= link_to "一覧を見る",  addressess_index_path, class: "btn btn-sm btn-primary w-180px" %>
+  </div></br>
+
+  <div class="row">
+    <h5>注文履歴</h5>&emsp;&emsp;
+    <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary w-180px" %>
+   </div></br>
+
+  </div>
+</div>
