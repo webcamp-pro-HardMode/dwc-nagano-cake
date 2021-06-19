@@ -1,31 +1,40 @@
-<%= form_with model: item, local:true do |f| %>
-      <div class="field">
-      <%= f.label :image, "商品画像" %>
-      <%= f.attachment_field :image %>
-      </div>
-      <div class="field">
-      <%= f.label :name, "商品名" %>
-      <%= f.text_field :name %>
-      </div>
-      <div class="field">
-      <%= f.label :introduction, "商品説明" %>
-      <%= f.text_area :introduction, class: "form-control" %>
-      </div>
-      <div class="field">
-      <%= f.label :genres_id, "ジャンル" %>
-      <%= f.collection_select :genres_id, genres, :id, :name, {prompt: "選択してください" } %>
-      </div>
-      <div class="field">
-      <%= f.label :price, "税抜価格" %>
-      <%= f.text_field :price %>
-      </div>
-      <div class="field">
-      <%= f.label :status, "販売ステータス" %>
-      <%= f.radio_button :status, :true %>
-      <%= f.label :status, "販売中", {value: :true, style: "display: inline-block;"} %>
-      <%= f.radio_button :status, :false %>
-      <%= f.label :status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
-      </div>
+<%= form_with model: item, url: admin_items_path, local:true do |f| %>
 
-      <%= f.submit '投稿' %>
-      <% end %>
+  <div class="form-group">
+    <%= f.label :image, "商品画像" %>
+    <%= f.attachment_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name, "商品名" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :introduction, "商品説明" %>
+    <%= f.text_area :introduction, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :genre_id, "ジャンル" %>
+    <%= f.collection_select(:genre_id, genres, :id, :name) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, "税抜価格" %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_status, "販売ステータス" %>
+    <%= f.radio_button :is_status, true %>
+    <%= f.label :is_status, "販売中", value: true %>
+    <%= f.radio_button :is_status, false %>
+    <%= f.label :isstatus, "販売停止中", value: false %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+
+ <% end %>

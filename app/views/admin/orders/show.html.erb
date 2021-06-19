@@ -1,108 +1,104 @@
 <div class="container">
   <div class="row">
-    <h3>注文履歴詳細</h3>
+    <h3 class="col-2 text-center alert alert-secondary">注文履歴詳細</h3>
     <div class="col-12">
-      <div class="col-3">
+      <div class="col-3 text-left">
         購入者
       </div>
-      <div class="col-9">
+      <div class="col-9 text-left">
         スパイダーマン
         <!--<%#= link_to .name, admin_customer_path() %>-->
       </div>
-      <div class="col-3">
+      <div class="col-3 text-left">
         注文日
       </div>
-      <div class="col-9">
+      <div class="col-9 text-left">
         2019/11/20
-        <!--<%#= .created_at.strftime("%Y/%m/%d") %>-->
+        <!--<%#= @order.created_at.strftime("%Y/%m/%d") %>-->
       </div>
-      <div class="col-3">
+      <div class="col-3 text-left">
         配送先
       </div>
-      <div class="col-9">
+      <div class="col-9 text-left">
         〒150-0041 東京都渋谷区1丁目19-11 パークウェースクエア２４階
         山田　花子
-        <!--<%#= .postal_code %><%#= .address %><%#= .name %>-->
+        <!--<%#= @order.postal_code %><%#= @order.address %>-->
+        <!--<%#= @order.name %>-->
       </div>
-      <div class="col-3">
+      <div class="col-3 text-left">
         支払い方法
       </div>
-      <div class="col-9">
+      <div class="col-9 text-left">
         銀行振り込み
-        <!--<%#= .payment_method %>-->
+        <!--<%#= @order.payment_method %>-->
       </div>
-
-
       <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
-        <div class="col-3">
+        <div class="col-3 text-left">
           注文ステータス
         </div>
         <div class="col-4">
         <%= f.select :status, Order.statuses.keys.map %>
         </div>
         <div class="col-2">
-        <%= f.submit "変更" class: "btn btn-success" %>
+        <%= f.submit "更新", class: "btn btn-success" %>
         </div>
       <% end %>
-
-
-      <div class="col-9">
-        <table class='table table-hover table-inverse'>
-          <thead>
-            <tr class="table-active">
-              <th>商品名</th>
-              <th>単価(税込)</th>
-              <th>数量</th>
-              <th>小計</th>
-              <th>制作ステータス</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <!--<%#= @order_items.each do |order_item| %>-->
-            <tr>
-              <td>洋梨のチーズタルト</td>
-              <!--<%#= order_item.item.name %>-->
-              <td>1,320</td>
-              <!--<%#= order_item %>-->
-              <td>1</td>
-              <!--<%#= order_item.quantity %>-->
-              <td>1,320</td>
-              <!--<%#= order_item.price %>-->
-              <%= form_with model: [:admin, @order_item], method: :patch, local: true do |f| %>
-              <td><%= f.select :order_status, OrderItem.order_statuses.keys.map %></td>
-              <td>
-                <%= f.submit "変更" class: "btn btn-success" %>
-              </td>
-              <% end %>
-            </tr>
-            <!--<%# end %>-->
-          </tbody>
-        </table>
-        <div class="col-3">
-          <table class="table">
-            <!--<%# orders.each do |order| %>-->
-            <tr>
-              <th>商品合計</th>
-              <th>6,490円</th>
-              <!--<%#= order.order_item.total_price %>円-->
-            </tr>
-            <tr>
-              <th>送料</th>
-              <th>800円</th>
-              <!--<%#= order.shipping_cost %>-->
-            </tr>
-            <tr>
-              <th>請求金額合計</th>
-              <th>7,290円</th>
-              <!--<%#= order.total_cost %>-->
-            </tr>
-            <!--<%# end %>-->
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
+    <!--購入商品-->
+    <div class="col-9">
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr class="table-active">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--<%#= @order_items.each do |order_item| %>-->
+          <tr>
+            <td>洋梨のチーズタルト</td>
+            <!--<%#= order_item.item.name %>-->
+            <td>1,320</td>
+            <!--<%#= order_item %>-->
+            <td>1</td>
+            <!--<%#= order_item.quantity %>-->
+            <td>1,320</td>
+            <!--<%#= order_item.price %>-->
+            <%= form_with model: [:admin, @order_item], method: :patch, local: true do |f| %>
+            <td><%= f.select :order_status, OrderItem.order_statuses.keys.map %></td>
+            <td>
+              <%= f.submit "変更" class: "btn btn-success" %>
+            </td>
+            <% end %>
+          </tr>
+          <!--<%# end %>-->
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3 mb-1 mr-2">
+      <table class="table">
+        <!--<%# orders.each do |order| %>-->
+        <tr>
+          <th>商品合計</th>
+          <th>6,490円</th>
+          <!--<%#= order.order_item.total_price %>円-->
+        </tr>
+        <tr>
+          <th>送料</th>
+          <th>800円</th>
+          <!--<%#= order.shipping_cost %>-->
+        </tr>
+        <tr>
+          <th>請求金額合計</th>
+          <th>7,290円</th>
+          <!--<%#= order.total_cost %>-->
+        </tr>
+        <!--<%# end %>-->
+      </table>
     </div>
   </div>
 </div>
