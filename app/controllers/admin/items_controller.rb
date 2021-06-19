@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+
   def index
     @items = Item.page(params[:page])
   end
@@ -9,28 +10,28 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params)
-    @genre = Genre.find(params[:genres_id])
+    @item = Item.find(params[:id])
   end
 
   def edit
     @item = Item.find(params[:id])
+    @genres = Genre.all
   end
 
-  def creat
+  def create
     @item = Item.new(item_params)
     @item.save
-    redirect_back(fallback_location: root_path)
+    redirect_to admin_items_path(@item)
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.save(item_params)
+    @item.update(item_params)
     redirect_to admin_item_path(@item)
   end
 
   private
   def item_params
-    params.reqire(:item).permit(:image, :name, :introduction, :genres_id, :price, :status)
+    params.require(:item).permit(:image, :name, :introduction, :genre_id, :price, :is_status)
   end
 end
