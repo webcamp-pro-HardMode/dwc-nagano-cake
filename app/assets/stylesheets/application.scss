@@ -16,11 +16,16 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vollkorn','游明朝', serif;
 }
 
 // ヘッダーレイアウト
@@ -81,14 +86,38 @@ body {
 
 .mainvisual {
   height: 500px;
-  margin: 0 auto;
-  display: flex;
+  // margin: 0 auto;
+  // display: flex;
   width: 90%;
   background-image: image-url('cake02.jpg');
   background-size: cover;
   background-position: center;
 }
 
+.subvisual {
+  height: 200px;
+  width: 40%;
+  background-image: image-url('cake01.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.news {
+  background-color: #ffc0cb;
+  margin: 20px 0 20px 0;
+  padding: 10px 0 10px 0;
+  text-align: center;
+}
+
+.effect{
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.effect:hover {
+  opacity: .7;
+}
 // フッターレイアアウト
 footer {
   height: 100px;
