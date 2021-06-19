@@ -10,9 +10,11 @@
 
   <body>
     <header>
-      <%= link_to root_path do %>
+      <div>
+        <%= link_to root_path do %>
         <img id="logo" src="/assets/logo.png" alt="ながのケーキ">
-      <% end %>
+        <% end %>
+      </div>
 
       <ul class="navigation">
         <% if customer_signed_in? %>
@@ -34,9 +36,11 @@
         <% end %>
       </ul>
     </header>
+
     <main>
     <%= yield %>
     </main>
+
     <footer>
       <div>
         長野県XX市XX町x-xx</br>
