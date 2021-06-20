@@ -13,69 +13,30 @@
           </tr>
         </thead>
         <tbody>
-          <!--<%# customers.each do |customer| %>-->
+          <% @customers.each do |customer| %>
           <tr>
             <td>
-              1
-              <!--<%#= customer.id %>-->
+              <%= customer.id %>
             </td>
             <td>
-              スーパーマン
-              <!--<%#= link_to customer.family_name + first.name, admin_customer_path(customer) %>-->
+              <%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %>
             </td>
             <td>
-              aaa@test.com
-              <!--<%#= customer.email %>-->
+              <%= customer.email %>
             </td>
             <td>
-              有効
-              <!--<%# if customer.is_exit == false %>-->
-              <!--  <p class="text-success">有効</p>-->
-              <!--<%# else %>-->
-              <!--  <p class="text-secondary">退会</p>-->
-              <!--<%# end %>-->
+              <% if customer.is_exist == false %>
+                <p class="text-success">有効</p>
+              <% else %>
+                <p class="text-secondary">退会</p>
+              <% end %>
             </td>
           </tr>
-          <!--<%# end %>-->
-          <tr>
-            <td>2</td>
-            <td>キャプテン・アメリカ</td>
-            <td>bbb@test.com</td>
-            <td>有効</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>アイアンマン</td>
-            <td>ccc@test.com</td>
-            <td>有効</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>スパイダーマン</td>
-            <td>ddd@test.com</td>
-            <td>退会</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>ハルク</td>
-            <td>bbb@test.com</td>
-            <td>有効</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>ソー</td>
-            <td>eee@test.com</td>
-            <td>有効</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>ブラック・ウィドウ</td>
-            <td>fff@test.com</td>
-            <td>有効</td>
+          <% end %>
           </tr>
         </tbody>
       </table>
     </div>
-    <!--<div class="text-center"><%#= paginate(@customers) %></div>-->
+    <div class="text-center"><%= paginate(@customers) %></div>
   </div>
 </div>

@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :orders, only: [ :show, :index, :create, :new]
     get '/orders/after' =>  'orders#after'
+    
+    put "/customers/update" => "customers#update", as: "customer_update"
     post '/orders/confirm' =>  'orders#confirm'
-    resource :customers, only: [ :update]
     get "/customers/my_page/edit", to: 'customers#edit', as: :edit_mypage
-    get '/customers/my_page' => 'customers#show'
+    get '/customers/my_page' => 'customers#show', as: :my_page
     patch '/customers/withdraw' => 'customers#withdraw'
     get '/customers/change' => 'customers#change'
   end
