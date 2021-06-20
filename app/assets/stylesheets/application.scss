@@ -25,13 +25,14 @@
 }
 
 body {
-  font-family: 'Vollkorn','游明朝', serif;
+  font-family: 'Vollkorn',"游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif, sans-serif;
+  color: #B3303C;
 }
 
 // ヘッダーレイアウト
 header {
   height: 150px;
-  background-image: linear-gradient(to top, #fff4ea, #ff1493);
+  background-image: linear-gradient(to bottom, #B3303C, #fff4ea);
   background-repeat: no-repeat;
   display: flex;
 }
@@ -101,10 +102,11 @@ body {
 }
 
 .news {
-  background-color: #ffc0cb;
+  background-color: #B3303C;
   margin: 20px 0 20px 0;
   padding: 10px 0 10px 0;
   text-align: center;
+  color: #fff;
 }
 
 .effect{
@@ -120,6 +122,6 @@ body {
 // フッターレイアアウト
 footer {
   height: 100px;
-  background-image: linear-gradient(to bottom, #fff4ea, #ff1493);
+  background-color: #fff4ea;
   background-repeat: no-repeat;
 }
