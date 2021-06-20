@@ -1,13 +1,30 @@
 class Public::CartItemsController < ApplicationController
+  # ログイン済ユーザーのみにアクセスを許可する
+  # before_action :authenticate_customer!
+  # ストロングパラメーター内で定義しています
+  # before_action :set_cart_item
+  # before_action :set_customer
+
+
   # カート一覧画面
   def index
-    # 現在のカートを呼び出す
-    @cart_items = current_cart.cart_items
+  #現在のカートを呼び出す
+  @cart_items = @customer.cart_items
   end
 
 # カート内注文情報画面/注文作成アクション
   def create
-    @cart_item = CartItem.new(item_params)
+    # buildはnewの別名のメソッドでitem_idなどの関連付けられたものを作成するときに使用する
+    @cart_item = @customer.cart_items.build(item_id: params[:item_id])
+    # もし空白のとき:blank?メソッドは、オブジェクトが空白の場合はtrueを返し、オブジェクトが空白ではない場合はfalseを返すメソッドです。
+    if @cart_item.blank?
+      @cart_item.count += params[:count].to_i
+      if@cart_item.save
+        redirect_to current_customer
+      else
+        redirect_to controller: "items",action: "show"
+      end
+    end
   end
 
 # カート内商品データ更新
@@ -42,4 +59,13 @@ private
       params.require(:cart_item).permit( :item_id, :count)
     end
 
+
+    # before_actionでの記述に対しての定義
+    def set_customer
+      @customer = current_customer
+    end
+
+    def set_cart_item
+      @cart_item = current_customer.cart_item.find_by(item_id: params[:item_id])
+    end
 end

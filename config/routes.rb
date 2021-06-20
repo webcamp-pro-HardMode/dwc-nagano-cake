@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to:  'homes#top'
     get '/homes/about' => 'homes#about'
-    resources :addressess ,only: [ :index,:create,:update,:destroy,:edit]
+    resources :addresses ,only: [ :index,:create,:update,:destroy,:edit]
     resources :items, only: [:index, :show]
     resources :cart_items ,only: [ :index,:create,:update,:destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'

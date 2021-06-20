@@ -25,26 +25,23 @@
 }
 
 body {
-  font-family: 'Vollkorn','游明朝', serif;
+  font-family: 'Vollkorn',"游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif, sans-serif;
+  color: #B3303C;
 }
 
 // ヘッダーレイアウト
 header {
   height: 150px;
-  background-image: linear-gradient(to top, #fff4ea, #ff1493);
+  background-image: linear-gradient(to bottom, #DB5661, #fff4ea);
   background-repeat: no-repeat;
-  display: flex;
 }
 
 #logo {
-  margin: 10px 10px 10px 20px;
-  width: 300px;
+  width: 350px;
 }
 
 .navigation {
-  padding: 40px;
-  margin: 0 0 0 auto;
-  text-align: center;
+  height: 150px;
 }
 
 li {
@@ -54,29 +51,29 @@ li {
 }
 
 .btn {
-  color: #fff;
+  color: #b3303c;
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
   line-height: 35px;
-  width: 140px;
+  width: 150px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
   border: 1px solid transparent;
   outline: 1px solid;
-  outline-color: rgba(255, 255, 255, 0.5);
+  outline-color: rgba(179, 48, 60, 0.5);
   outline-offset: 0px;
   text-shadow: none;
   transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
 .btn:hover {
-  border-color: #fff;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  border-color: #b3303c;
+  box-shadow: inset 0 0 20px rgba(179, 48, 60, 0.5), 0 0 20px rgba(179, 48, 60, 0.2);
   outline-color: transparent;
   outline-offset: 12px;
-  text-shadow: 2px 2px 3px #fff;
+  text-shadow: 2px 2px 3px #b3303c;
 }
 
 // メインレイアウト
@@ -101,18 +98,27 @@ body {
 }
 
 .subvisual {
-  height: 200px;
-  width: 40%;
-  background-image: image-url('cake01.jpg');
+  height: 300px;
+  margin-bottom: 30px;
+  background-image: image-url('cake05.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .news {
-  background-color: #ffc0cb;
+  background-color: #DB5661;
   margin: 20px 0 20px 0;
   padding: 10px 0 10px 0;
   text-align: center;
+  color: #fff;
+}
+
+.about {
+  background-color: #DB5661;
+  margin: 20px 0 20px 0;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  color: #fff;
 }
 
 .effect{
@@ -125,9 +131,19 @@ body {
 .effect:hover {
   opacity: .7;
 }
+
 // フッターレイアアウト
 footer {
   height: 100px;
-  background-image: linear-gradient(to bottom, #fff4ea, #ff1493);
+  background-color: #fff4ea;
   background-repeat: no-repeat;
+}
+
+.adress {
+  margin-left: 30px;
+}
+
+.copyright {
+  margin-top: 10px;
+  margin-left: 30px;
 }
