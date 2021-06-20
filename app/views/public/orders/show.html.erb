@@ -1,2 +1,105 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h5 class="col-2 text-center alert alert-secondary offset-1 mb-4">注文履歴詳細</h5>
+    <div class="col-8">
+      <div>注文情報</div>
+      <table class='table table-bordered'>
+        <tbody>
+          <tr>
+            <th>注文日</th>
+            <td>
+              2019/11/05
+              <%#= @order.created_at.strftime("%Y/%m/%d") %>
+            </td>
+          </tr>
+          <tr>
+            <th>配送先</th>
+            <td>
+              〒1500041<br>
+              東京都渋谷区神南1丁目19-11パークウェースクエア24階<br>
+              山田花子
+              <%#= @order.postal_code %>
+              <%#= @order.address %>
+              <%#= @order.name %>
+            </td>
+          </tr>
+          <tr>
+            <th>支払い方法</th>
+            <td>
+              銀行振り込み
+              <%#= @order.payment_method %>
+            </td>
+          </tr>
+          <tr>
+            <th>ステータス</th>
+            <td>
+              入金確認
+              <%#= @order.status %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <div>請求情報</div>
+        <table class='table table-bordered'>
+          <tr>
+            <th>商品合計</th>
+            <td>
+              1,500
+              <%#= @order_item.total_price %>
+            </td>
+          </tr>
+          <tr>
+            <th>配送料</th>
+            <td>
+              800
+              <%#= @order.shipping_cost %>
+            </td>
+          </tr>
+          <tr>
+            <th>ご請求額</th>
+            <td>
+              2,300
+              <%#= @order.total_cost %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-10">
+      <div>注文内容</div>
+        <table class='table table-bordered'>
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>単価(税込)</th>
+              <th>個数</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%# @order_items.each do |order_item| %>
+            <tr>
+              <td>
+                いちごのショートケーキ
+                <%# order_item.item.name %>
+              </td>
+              <td>
+                500
+                <%# order_item.price %>
+              </td>
+              <td>
+                2
+                <%# order_item.quantity %>
+              </td>
+              <td>
+                1000
+                <%# order_item.total_price%>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
