@@ -18,7 +18,7 @@
 
       <ul class="navigation">
         <% if customer_signed_in? %>
-          <li><%= link_to "マイページ", customers_my_page_path, class:"btn nav-btn" %></li>
+          <li><%= link_to "マイページ", my_page_path, class:"btn nav-btn" %></li>
           <li><%= link_to "商品一覧", items_path, class:"btn nav-btn" %></li>
           <li><%= link_to "カート", cart_items_path, class:"btn nav-btn" %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"btn nav-btn" %></li>
