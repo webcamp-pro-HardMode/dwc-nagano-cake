@@ -40,5 +40,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+    #セッションの作成（カートで使用）
+  def current_customer
+    # セッションを管理するためにcustomer_idを使用する（誰の注文をカートに入れておくかを記録し続けるため
+    # セッションから取得したcart_idを元にCustomerテーブルからcustomer情報を取得
+    current_customer = Customer.find_by(id: session[:customer_id])
+    # customer情報が存在しない場合、@customerを作成
+    current_customer = Customer.create unless current_customer
+    # 取得したCustomer情報よりIDを取得し、セッションに設定
+    session[:customer_id] = current_customer.id
+    # Customerの情報を返却
+    current_customer
+  end
+
 
 end
