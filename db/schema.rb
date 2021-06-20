@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_080929) do
     t.text "introduction"
     t.boolean "is_status", default: true, null: false
     t.string "image_id"
+    t.integer "genres_id"
     t.integer "genre_id"
   end
 
