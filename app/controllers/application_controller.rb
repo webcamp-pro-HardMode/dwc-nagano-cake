@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :configure_sign_up_params, only: [:create]
   #before_action :reject_inactive_customer, only:[:new, :create]
 
   #ログイン後の遷移先
@@ -22,13 +23,14 @@ class ApplicationController < ActionController::Base
   end
 
 
-  protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :first_name, :kana_sei, :kana_mei, :postal_code, :address, :phone_number])
-  end
+
 
   private
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :family_name, :first_name, :kana_sei, :kana_mei, :postcode, :prefecture_name, :address_city, :address_street, :address_building, :postal_code, :address, :phone_number])
+  end
 
   #退会したエンドユーザーのログインを阻止する
   def reject_inactive_customr

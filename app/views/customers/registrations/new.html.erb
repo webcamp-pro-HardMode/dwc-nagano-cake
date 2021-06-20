@@ -28,12 +28,27 @@
 
       <div class="field">
         <%= f.label "郵便番号" %>&emsp;&emsp;
-        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+        <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
       </div>
 
       <div class="field">
-        <%= f.label "住所" %>&emsp;&emsp;
-        <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+        <%= f.label :prefecture_name, "都道府県" %>&emsp;&emsp;
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'form-control', autofocus: true, autocomplete: "prefecture_name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "市町村" %>&emsp;&emsp;
+        <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "番地" %>&emsp;&emsp;
+        <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "建物" %>&emsp;&emsp;
+        <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building" %>
       </div>
 
       <div class="field">

@@ -26,13 +26,16 @@
         <tr>
           <td class="table-secondary">郵便番号</td>
           <td>
-            <%= current_customer.postal_code %>
+            <%= current_customer.postcode %>
           </td>
         </tr>
         <tr>
           <td class="table-secondary">住所</td>
           <td>
-            <%= current_customer.address %>
+            <%= current_customer.prefecture_name %>
+            <%= current_customer.address_city %>
+            <%= current_customer.address_street %>
+            <%= current_customer.address_building %>
           </td>
         </tr>
         <tr>
