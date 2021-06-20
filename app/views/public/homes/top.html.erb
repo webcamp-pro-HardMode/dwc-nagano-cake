@@ -1,8 +1,6 @@
 <div class="conteiner-fluid">
   <div class="row justify-content-center">
     <div class="mainvisual col-10"></div>
-  </div>
-  <div class="row justify-content-center">
     <div class="news col-4">
       <h3>お知らせ</h3>
       <p>
@@ -14,11 +12,11 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-8 d-flex justify-content-center">
       <h2>新着商品</h2>
-      <div class="items d-flex justify-content-center">
+      <div class="items d-flex justify-content-center ">
         <% @items.each do |item| %>
-        <table class="item-container m-4">
+        <table class="item-container m-4 col-2">
           <tr>
             <%= link_to item_path(item.id) do %>
             <td><%= attachment_image_tag item, :image, size: "200x200", class:"effect" %></td>
@@ -32,9 +30,9 @@
           </tr>
         </table>
       <% end %>
-      </div>
-      <div class="text-align-right">
-      <%= link_to "すべての商品を見る>", items_path %>
+        <div class="flex-row-reverse align-self-end">
+        <%= link_to "すべての商品を見る>", items_path %>
+        </div>
       </div>
     </div>
   </div>
