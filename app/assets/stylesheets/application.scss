@@ -71,6 +71,14 @@ li {
   transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
+.btn:hover {
+  border-color: #fff;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: transparent;
+  outline-offset: 12px;
+  text-shadow: 2px 2px 3px #fff;
+}
+
 // メインレイアウト
 body {
   background-color: #fff4ea;
@@ -78,20 +86,12 @@ body {
 
 .mainvisual {
   height: 500px;
-  // margin: 0 auto;
-  // display: flex;
   width: 90%;
   background-image: image-url('cake02.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.btn:hover {
-  border-color: #fff;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-  outline-color: transparent;
-  outline-offset: 12px;
-  text-shadow: 2px 2px 3px #fff;
 .subvisual {
   height: 200px;
   width: 40%;
@@ -108,6 +108,7 @@ body {
 }
 
 .effect{
+  border-radius: 50%;
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
