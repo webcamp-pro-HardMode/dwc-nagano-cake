@@ -1,13 +1,40 @@
-<div class="mainvisual"></div>
-
-<div class="news">
-  <p>
-    ようこそ、ながのCAKEへ！</br>
-    このサイトは、ケーキ販売のECサイトになります。</br>
-    会員でない⽅も商品の閲覧はできますが、</br>
-    購⼊には会員登録が必要になります。
-  </p>
+<div class="conteiner-fluid">
+  <div class="row justify-content-center">
+    <div class="mainvisual col-10"></div>
+    <div class="news col-4">
+      <h3>お知らせ</h3>
+      <p>
+        ようこそ、ながのCAKEへ！</br>
+        このサイトは、ケーキ販売のECサイトになります。</br>
+        会員でない⽅も商品の閲覧はできますが、</br>
+        購⼊には会員登録が必要になります。
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-8 d-flex justify-content-center">
+      <h2>新着商品</h2>
+      <div class="items d-flex justify-content-center ">
+        <% @items.each do |item| %>
+        <table class="item-container m-4 col-2">
+          <tr>
+            <%= link_to item_path(item.id) do %>
+            <td><%= attachment_image_tag item, :image, size: "200x200", class:"effect" %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <td>￥<%= item.price %></td>
+          </tr>
+        </table>
+      <% end %>
+        <div class="flex-row-reverse align-self-end">
+        <%= link_to "すべての商品を見る>", items_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<h2>新着商品</h2>
 

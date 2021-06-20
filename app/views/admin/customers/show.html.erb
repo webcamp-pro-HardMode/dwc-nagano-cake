@@ -1,2 +1,72 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+  <% @customer.each do |customer| %>
+  <h4>
+    <%= customer.family_name %>&nbsp;<%= customer.first_name %> さんの会員詳細
+  </h4>
+
+
+
+  <div class="data">
+    <table class="table table-borderless table-hover table-responsive">
+      <tbody>
+        <tr>
+          <td>会員ID</td>
+          <td style="width:50%">
+            <%= customer.id %>
+          </td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td>
+            <%= customer.family_name %>
+            <%= customer.first_name %>
+          </td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td>
+            <%= customer.kana_sei %>
+            <%= customer.kana_mei %>
+          </td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td>
+            <%= customer.postal_code %>
+          </td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td>
+            <%= customer.address %>
+          </td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td>
+            <%= customer.phone_number %>
+          </td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td>
+            <%= customer.email %>
+          </td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td class="text-success">
+            <!--会員ステータスの判定（trueなら退会、falseなら有効）-->
+            <%= customer.is_exist ? '退会' : '有効' %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="link-btn">
+    <%= link_to "注文履歴一覧を見る", orders_path, class: "btn btn-primary" %>
+    <%= link_to "編集する",  edit_admin_customer_path, class: "btn btn-success" %>
+  </div>
+  <% end %>
+</div>
