@@ -44,11 +44,11 @@
       <div class="status">
         <%= f.label "会員ステータス" %>&emsp;&emsp;
           <!--ラジオボタンで選択（false：有効）-->
-          <%= f.radio_button :is_exist, false %>
-          <%= f.label :is_exist, '有効', value: false %>&nbsp;&nbsp;
+          <%= f.radio_button :is_exist, :false %>
+          <%= f.label :is_exist, '有効', value: :false %> &nbsp;&nbsp;
           <!--ラジオボタンで選択（true：退会）-->
-          <%= f.radio_button :is_exist, true %>
-          <%= f.label :is_exist, '退会', value: true %>
+          <%= f.radio_button :is_exist, :true %>
+          <%= f.label :is_exist, '退会', value: :true %>
       </div>
 
       <div class="field">

@@ -38,7 +38,13 @@
       </ul>
     </header>
 
+
+    <main>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+
     <main class="container-fluid">
+
     <%= yield %>
     </main>
 
