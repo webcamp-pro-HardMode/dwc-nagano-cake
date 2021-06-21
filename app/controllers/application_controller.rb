@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  #before_action :reject_inactive_customer, only:[:new, :create]
+  # deviseにまつわる画面に行った時に全ての画面でconfigure_permitted_parametersが起動
+  before_action :configure_permitted_parameters , if: :devise_controller?
 
   #ログイン後の遷移先
   def after_sign_in_path_for(resource)
@@ -22,23 +23,16 @@ class ApplicationController < ActionController::Base
   end
 
 
-  protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :first_name, :kana_sei, :kana_mei, :postal_code, :address, :phone_number])
-  end
 
   private
 
-  #退会したエンドユーザーのログインを阻止する
-  def reject_inactive_customr
-    @customer = Customer.find_by(name: params[:customer][:email])
-    if @customer
-      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_valid
-        redirect_to new_customer_session_path
-      end
-    end
+  # 新規登録・顧客情報更新時に（deviseのデフォルト以外の）カラムの保存を許可する
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :first_name, :kana_sei, :kana_mei, :postal_code, :address, :phone_number, :is_exist])
   end
+
+
 
     #セッションの作成（カートで使用）
   def current_customer
@@ -59,6 +53,7 @@ class ApplicationController < ActionController::Base
     #   current_customer
     end
   end
+
 
 
 end
