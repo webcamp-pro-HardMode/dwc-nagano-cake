@@ -14,38 +14,38 @@
           </tr>
         </thead>
         <tbody>
-          <%# @orders.each do |order| %>
+          <% @orders.each do |order| %>
           <tr>
             <td>
               2019/11/5
-              <%#= order.created_at.strftime("%Y/%m/%d") %>
+              <%= order.created_at.strftime("%Y/%m/%d") %>
             </td>
             <td>
               〒1500041<br>
               東京都渋谷区神南1丁目19-11パークウェースクエア24階<br>
               山田花子
-              <%#= order.postal_code %>
-              <%#= order.address %>
-              <%#= order.name %>
+              <%= order.postal_code %>
+              <%= order.address %>
+              <%= order.name %>
             </td>
             <td>
               いちごのショートケーキ<br>
               ガトーショコラ
-              <%# order.order_items.each do |order_item| %>
-                <%#= order_item.item.name %>
-              <%# end %>
+              <% order.order_items.each do |order_item| %>
+                <%= order_item.item.name %>
+              <% end %>
             </td>
             <td>
               2,300円
-              <%#= order.total_cost %>
+              <%= order.total_cost %>
             </td>
             <td>
               入金確認
-              <%#= order.status %>
+              <%= order.status %>
             </td>
             <td>
               <button type="button" class="btn btn-primary">表示する</button>
-              <%#= link_to "表示する", order_path(order), class: "btn btn-primary" %>
+              <%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
             </td>
           </tr>
         </tbody>
