@@ -9,22 +9,26 @@ class Public::CartItemsController < ApplicationController
   # カート一覧画面
   def index
   #現在のカートを呼び出す
-  @cart_items = @customer.cart_items
+  # @cart_items = @customer.cart_items
   end
 
 # カート内注文情報画面/注文作成アクション
   def create
     # buildはnewの別名のメソッドでitem_idなどの関連付けられたものを作成するときに使用する
+    @cart_item = CartItem.new(cart_item_params)
+    @customer = current_customer
     @cart_item = @customer.cart_items.build(item_id: params[:item_id])
     # もし空白のとき:blank?メソッドは、オブジェクトが空白の場合はtrueを返し、オブジェクトが空白ではない場合はfalseを返すメソッドです。
-    if @cart_item.blank?
-      @cart_item.count += params[:count].to_i
-      if@cart_item.save
-        redirect_to current_customer
-      else
-        redirect_to controller: "items",action: "show"
-      end
-    end
+    # if @cart_item.blank?
+    #   @cart_item.count += params[:count].to_i
+    #   if
+
+        @cart_item.save
+        redirect_to cart_items_path
+      # else
+        # redirect_to cart_items_path
+      # end
+    # end
   end
 
 # カート内商品データ更新
@@ -56,7 +60,7 @@ class Public::CartItemsController < ApplicationController
 private
     def cart_item_params
       # カートアイテムテーブルへ、商品のidと数量を保存する
-      params.require(:cart_item).permit( :item_id, :count)
+      params.require(:cart_item).permit( :item_id, :count, :customer_id)
     end
 
 
