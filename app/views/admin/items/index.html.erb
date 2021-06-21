@@ -23,7 +23,11 @@
             </td>
             <td><%= item.price %></td>
             <td><%= item.genre.name %></td>
-            <td><%= item.is_status ? '販売中' : '販売停止中' %></td>
+            <td><% if item.is_status == true %>
+                <p class="text-success">販売中</p>
+              <% else %>
+                <p class="text-secondary">販売停止中</p>
+              <% end %></td>
           </tr>
         <% end %>
         <%= paginate @items %>
