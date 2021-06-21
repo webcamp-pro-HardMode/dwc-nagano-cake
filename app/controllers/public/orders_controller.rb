@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.find(params[:id])
+    @orders = Order.all
   end
 
   def after

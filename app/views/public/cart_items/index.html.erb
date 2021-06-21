@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-end">
     
     <!--追加で記述が必要-->
-    <%= link_to 'カートを空にする',class: "btn btn-danger" %>
+    <%= link_to 'カートを空にする',cart_items_destroy_all_path, class: "btn" %>
   </div>
   
   <% if @cart_items.blank? %>
@@ -31,7 +31,7 @@
                 <!--量-->
                 <td><%= form_with model: @cart_item, local: true do |f| %>
                     <%= f.number_field :count, value: cart_item.count %>
-                    <%= f.submit "変更",class: "glyphicon glyphicon-pencil btn btn-success" %>
+                    <%= f.submit "変更", class: "glyphicon glyphicon-pencil btn btn-success" %>
                 </td>
                 <td><%= cart_item.total_price %></td>
                 <td><%= link_to '削除する',cart_item, method: :delete, class: "btn btn-danger" %></td>
@@ -40,6 +40,7 @@
           </tbody>
         </table>
        </div>
-    </div>
+     </div>
+  <% end %>
   <% end %>
 </div>
