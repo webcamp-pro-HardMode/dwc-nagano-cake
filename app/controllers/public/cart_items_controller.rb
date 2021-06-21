@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
   # ログイン済ユーザーのみにアクセスを許可する
-  # before_action :authenticate_customer!
+  before_action :authenticate_customer!
   # ストロングパラメーター内で定義しています
   # before_action :set_cart_item
   # before_action :set_customer
