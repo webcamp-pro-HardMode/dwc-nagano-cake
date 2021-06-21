@@ -1,2 +1,50 @@
-<h1>Public::Addresses#index</h1>
-<p>Find me in app/views/public/addresses/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h5 class="col-2 text-center alert alert-secondary offset-1 mb-4">配送先登録/一覧</h5>
+    <div class="col-12">
+    <%= form_with model: @address, local: true do |f| %>
+      <div class="form-group row mb-3">
+        <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-sm-3 col-form-label" %>
+        <%= f.text_field :postal_code, :placeholder => "0000000", class: "col-3 form-control" %>
+      </div>
+
+      <div class="form-group row mb-3">
+        <%= f.label :address, "住所", class: "col-sm-3 col-form-label" %>
+        <%= f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0", class: "col-6 form-control" %>
+      </div>
+
+      <div class="form-group row mb-3">
+        <%= f.label :name, "宛名", class: "col-sm-3 col-form-label" %>
+        <%= f.text_field :name, :placeholder => "令和道子", class: "col-3 form-control" %>
+        <%= f.submit '新規登録', class: 'col-2 offset-3 btn btn-success' %>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-9 mt-5">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%# @addresses.each do |address| %>
+          <tr>
+            <td>000000<%#= address.postal_code %></td>
+            <td>神奈川県横浜市戸塚区柏尾町3-9-10<%#= address.address %></td>
+            <td>梅木匠<%#= address.name %></td>
+            <td>
+              編集する　削除する
+              <%#= link_to '編集する', edit_addressess_path(address), class: "btn btn-sm btn-success" %>
+              <%#= link_to "削除する", addressess_path(address), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            </td>
+          </tr>
+          <%# end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
