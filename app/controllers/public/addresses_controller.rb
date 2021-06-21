@@ -1,4 +1,4 @@
-class Public::AddressessController < ApplicationController
+class Public::AddressesController < ApplicationController
 
   def index
     # @address = Address.new
@@ -13,9 +13,6 @@ class Public::AddressessController < ApplicationController
   end
 
   def update
-  end
-
-  def edit
   end
 
 end
