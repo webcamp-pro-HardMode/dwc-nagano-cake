@@ -22,4 +22,11 @@ KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
   validates :email, presence: true
   validates :is_exist, inclusion: { in: [true, false]}
 
+  # 退会したユーザがログインできないようにする
+  # active_for_authentication?は、ログイン認証可否のdeviseメソッド
+  #def active_for_authentication?
+    #　true：ログイン可、false：拒否
+    #super && (self.is_exist == false)
+  #end
+  # 上記がfalseかつApplicationControllerのreject_inactive_customrメソッドに当てはまればログインできない
 end

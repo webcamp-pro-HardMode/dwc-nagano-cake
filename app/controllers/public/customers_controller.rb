@@ -23,7 +23,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     #trueで更新する（true：退会、false：有効）
     @customer.update(is_exist: true)
-    #sessionメソッドでログイン時の情報を削除（メール・パスワード）、ログアウトさせる
+    #sessionメソッドでログイン時の情報をリセット（メール・パスワード）、ログアウトさせる
     #application_controllerに定義する
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
@@ -33,7 +33,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-      params.require(:customer).permit(:first_name, :family_name, :kana_sei, :kama_mei, :email, :postal_code, :address, :phone_number)
+      params.require(:customer).permit(:first_name, :family_name, :kana_sei, :kana_mei, :email, :postal_code, :address, :phone_number, :is_exist)
   end
 
 end
