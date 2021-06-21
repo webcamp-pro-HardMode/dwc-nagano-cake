@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mx-4">
 <h3>ジャンル一覧・追加</h3>
 <br>
 <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
@@ -7,17 +7,18 @@
     <label for="staticEmail2" class="sr-only">Email</label>
   </div>
 
-  <div class="form-group mx-sm-3 mb-2">
+  <div class="form-group mx-sm-4 mb-2">
     <lavel class="mx-2" >ジャンル名</lavel>
     <span class="mx-4"><%= f.text_field :name %></span>
     <span class="mx-4"><%= f.submit '新規登録',class: "glyphicon glyphicon-pencil btn btn-success" %></span>
   </div>
 </form>
 <% end %>
+</div>
 
       <!--ジャンルテーブル-->
   <div class="row">
-    <table class="table table-striped col-6">
+    <table class="table table-striped mx-sm-4">
       <thead>
           <tr>
             <th>ジャンル</th>
