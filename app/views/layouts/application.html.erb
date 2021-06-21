@@ -39,6 +39,8 @@
     </header>
 
     <main>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <%= yield %>
     </main>
 
