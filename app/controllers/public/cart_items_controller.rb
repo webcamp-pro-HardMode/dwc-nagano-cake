@@ -9,7 +9,7 @@ class Public::CartItemsController < ApplicationController
   # カート一覧画面
   def index
   #現在のカートを呼び出す
-  @cart_items = @customer.cart_items
+  # @cart_items = @customer.cart_items
   end
 
 # カート内注文情報画面/注文作成アクション
@@ -20,7 +20,7 @@ class Public::CartItemsController < ApplicationController
     if @cart_item.blank?
       @cart_item.count += params[:count].to_i
       if@cart_item.save
-        redirect_to current_customer
+        redirect_to cart_items_path
       else
         redirect_to controller: "items",action: "show"
       end

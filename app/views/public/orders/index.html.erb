@@ -31,9 +31,9 @@
             <td>
               いちごのショートケーキ<br>
               ガトーショコラ
-              <% order.order_items.each do |order_item| %>
-                <%= order_item.item.name %>
-              <% end %>
+              <%# order.order_items.each do |order_item| %>
+                <%= order.order_item.name %>
+              <%# end %>
             </td>
             <td>
               2,300円
@@ -48,9 +48,9 @@
               <%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
             </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
-
   </div>
 </div>
