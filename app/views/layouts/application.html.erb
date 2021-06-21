@@ -30,10 +30,10 @@
           <li class="mb-4 ml-3"><%= link_to "ジャンル一覧", admin_genres_path, class:"btn nav-btn" %></li>
           <li class="mb-4 ml-3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn nav-btn" %></li>
           <li class="mb-4 ml-3">
-          <%= form_with url: search_path, method: :get, local: true do |f| %>
-            <%= f.text_field :search %>
-            <% f.submit 'Search', name:nil %>
-          <% end %>
+          <%#= form_with url: search_path, method: :get, local: true do |f| %>
+            <%#= f.text_field :search %>
+            <%# f.submit 'Search', name:nil %>
+          <%# end %>
           </li>
         <% else %>
           <li class="mb-4"><%= link_to "about", homes_about_path, class:"btn nav-btn" %></li>

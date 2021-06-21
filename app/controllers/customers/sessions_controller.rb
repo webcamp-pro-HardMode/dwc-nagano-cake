@@ -34,6 +34,7 @@ class Customers::SessionsController < Devise::SessionsController
       else
         # ログインページでのエラーメッセージ
       flash.now[:alert] = "必須項目を入力してください。"
+      end
     end
   end
 
