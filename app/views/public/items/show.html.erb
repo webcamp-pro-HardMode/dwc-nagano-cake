@@ -10,10 +10,11 @@
       <h3 class="mt-5">¥2,000<!--<%#= item.price %>税込表示できません--></h3><p class="mt-5 ml-2">(税込)</p>
       </div>
       <div class="d-flex mt-4">
-        <%= form_with model: @cart_item, local: true do |f| %>
-          <%= f.hidden_field :item_id, value: item.id %>
-          <%= f.select :quantity, , include_blank: "個数選択" %>
+        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :count, options_for_select(1..10), include_blank: "個数選択" %>
           <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+        <% end %>
       </div>
 
 
