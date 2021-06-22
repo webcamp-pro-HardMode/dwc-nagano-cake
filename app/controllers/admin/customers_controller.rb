@@ -7,6 +7,7 @@ class Admin::CustomersController < ApplicationController
   def show
     #条件に合致するオブジェクトを配列として取り出しeach文に渡すためwhereメソッドを使用
     @customer = Customer.where(id: params[:id])
+    @user = Customer.find(params[:id])
   end
 
   def edit

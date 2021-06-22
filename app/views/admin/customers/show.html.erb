@@ -1,17 +1,17 @@
-<div class="container">
-  <% @customer.each do |customer| %>
-  <h4>
-    <%= customer.family_name %>&nbsp;<%= customer.first_name %> さんの会員詳細
+<div class="row ml-5 mt-5">
+  <h4 class="col-xl-3 col-lg-5 col-md-6 col-12 mt-4 text-center alert alert-secondary">
+    <%= @user.family_name %><%= @user.first_name %> さんの会員詳細
   </h4>
+</div>
 
-
-
-  <div class="data">
-    <table class="table table-borderless table-hover table-responsive">
-      <tbody>
-        <tr>
-          <td>会員ID</td>
-          <td style="width:50%">
+<div class="row mt-3">
+    <div class="table responsive">
+      <table class="table col-10 offset-1 table-borderless">
+        <tbody>
+        <% @customer.each do |customer| %>
+          <tr>
+          <td class="col-2">会員ID</td>
+          <td>
             <%= customer.id %>
           </td>
         </tr>
@@ -61,12 +61,19 @@
           </td>
         </tr>
       </tbody>
+      <% end %>
     </table>
+    </div>
+</div>
+<div class="row mb-5">
+  <div class="col-7 offset-2">
+    <div class="d-flex">
+      <div class="col-3">
+        <%= link_to "編集する",  edit_admin_customer_path, class: "btn" %>
+      </div>
+      <div class="col-1">
+        <%= link_to "注文履歴一覧を見る", orders_path, class: "btn" %>
+      </div>
+    </div>
   </div>
-
-  <div class="link-btn">
-    <%= link_to "注文履歴一覧を見る", orders_path, class: "btn btn-primary" %>
-    <%= link_to "編集する",  edit_admin_customer_path, class: "btn btn-success" %>
-  </div>
-  <% end %>
 </div>

@@ -1,11 +1,11 @@
 
   <h1>ショッピングカート</h1>
   <div class="d-flex justify-content-end">
-    
+
     <!--追加で記述が必要-->
-    <%= link_to 'カートを空にする',cart_items_destroy_all_path, class: "btn" %>
+    <%= link_to 'カートを空にする',cart_items_destroy_all_path, method: :delete, class: "btn" %>
   </div>
-  
+
   <% if @cart_items.blank? %>
    <p>カートは空です</p>
   <% else %>
