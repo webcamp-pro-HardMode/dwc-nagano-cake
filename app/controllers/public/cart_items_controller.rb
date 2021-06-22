@@ -9,7 +9,7 @@ class Public::CartItemsController < ApplicationController
   # カート一覧画面
   def index
   #現在のカートを呼び出す
-  # @cart_items = @customer.cart_items
+  @cart_items = current_customer.cart_items
   end
 
 # カート内注文情報画面/注文作成アクション
@@ -50,9 +50,8 @@ class Public::CartItemsController < ApplicationController
 # カート内全商品削除
    def destroy_all
      # 現在のカートを呼び出す
-    @cart_items = current_cart.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
     #destroy_allメソッドを使い現在のカートのレコード全てを削除
-    @cart_items.destroy_all
     redirect_to cart_items_path
    end
 
