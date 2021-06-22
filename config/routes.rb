@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :addresses ,only: [ :index,:create,:update,:destroy,:edit]
     resources :items, only: [:index, :show]
     resources :cart_items ,only: [ :index,:create,:update,:destroy]
-    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    delete '/cart_items_destroy_all' => 'cart_items#destroy_all'
     resources :orders, only: [ :show, :index, :create, :new]
     get '/orders/after' =>  'orders#after'
 

@@ -11,7 +11,7 @@
           <%= item.name %><br>
         </div>
         <div class="mt-2 offset-2">
-      　   ¥2,000<!--¥<%#= item.price %>税込の表示方法がわかりません-->
+      　  <%= item.price + item.price * 0.1 %>
       　</div>
       </div>
     <% end %>
