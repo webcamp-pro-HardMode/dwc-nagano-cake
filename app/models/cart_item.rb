@@ -4,5 +4,6 @@ class CartItem < ApplicationRecord
 
 
   validates :count, presence: true
+  
 
 end

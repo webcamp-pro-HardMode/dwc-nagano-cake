@@ -9,23 +9,27 @@ class Public::CartItemsController < ApplicationController
   # カート一覧画面
   def index
   #現在のカートを呼び出す
-  
-  @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_items
+    
+    # @sum = CartItem.all.sum(item.price)
   end
-
 # カート内注文情報画面/注文作成アクション
   def create
-    # buildはnewの別名のメソッドでitem_idなどの関連付けられたものを作成するときに使用する
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    session[:cart_items_id] = @cart_item.id
-    # @cart_item = @customer.cart_items.build(item_id: params[:item_id])
-    # もし空白のとき:blank?メソッドは、オブジェクトが空白の場合はtrueを返し、オブジェクトが空白ではない場合はfalseを返すメソッドです。
-    # if @cart_item.blank?
-      @cart_item.count += params[:count].to_i
-    #   if
-        @cart_item.save
-        redirect_to cart_items_path
+    # if @cart_item.nill?
+      @cart_item = CartItem.new(cart_item_params)
+      session[:cart_items_id] = @cart_item.id
+      @cart_item.customer_id = current_customer.id
+      @cart_items = current_customer.cart_items.all
+
+      @cart_items.each do |cart_item|
+        if cart_item.item_id == @cart_item.item_id
+          new_count = cart_item.count + @cart_item.count
+          cart_item.update_attribute(:count, new_count)
+          @cart_item.delete
+        end
+      end
+      @cart_item.save
+      redirect_to cart_items_path
       # else
         # redirect_to cart_items_path
       # end
@@ -36,9 +40,22 @@ class Public::CartItemsController < ApplicationController
   def update
     # find_byは、複数の条件を指定したりid以外のカラムでも検索できる
     # CartItemテーブルから「IDカラム」がボタン押下時等に得られる「paramsID」とマッチした最初のデータを取得する、それをUPDATEする
-    CartItem.find_by(id: params[:id]).update(cart_item_params)
+   @cart_item = CartItem.find(params[:id])
+   @cart_item.update(count: params[:count].to_i)
+    # CartItem.find_by(id: params[:id]).update(cart_item_params)
+
     redirect_to cart_items_path
   end
+
+# カート内全商品削除
+   def destroy_all
+     # 現在のカートを呼び出す
+    CartItem.destroy_all
+    @customer = current_customer
+    @customer.cart_items.destroy_all
+    #destroy_allメソッドを使い現在のカートのレコード全てを削除
+    redirect_to cart_items_path
+   end
 
 # カート内商品削除
   def destroy
@@ -48,19 +65,13 @@ class Public::CartItemsController < ApplicationController
 
   end
 
-# カート内全商品削除
-   def destroy_all
-     # 現在のカートを呼び出す
-    current_customer.cart_items.destroy_all
-    #destroy_allメソッドを使い現在のカートのレコード全てを削除
-    redirect_to cart_items_path
-   end
 
 
 private
+
     def cart_item_params
       # カートアイテムテーブルへ、商品のidと数量を保存する
-      params.require(:cart_item).permit( :item_id, :count)
+      params.require(:cart_item).permit(:item_id, :count)
     end
 
 
