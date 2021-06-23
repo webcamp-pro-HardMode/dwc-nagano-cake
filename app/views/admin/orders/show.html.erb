@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h3 class="col-2 text-center alert alert-secondary">注文履歴詳細</h3>
+    <h3 class="col-2 text-center">注文履歴詳細</h3>
     <div class="col-12">
       <div class="col-3 text-left">
         購入者
@@ -40,15 +40,15 @@
         <%= f.select :status, Order.statuses.keys.map %>
         </div>
         <div class="col-2">
-        <%= f.submit "更新", class: "btn btn-success" %>
+        <%= f.submit "更新", class: "btn" %>
         </div>
       <% end %>
     </div>
     <!--購入商品-->
     <div class="col-9">
-      <table class='table table-hover table-inverse'>
+      <table class='table'>
         <thead>
-          <tr class="table-active">
+          <tr>
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
@@ -71,7 +71,7 @@
             <%= form_with model: [:admin, @order_item], method: :patch, local: true do |f| %>
             <td><%= f.select :order_status, OrderItem.order_statuses.keys.map %></td>
             <td>
-              <%= f.submit "変更" class: "btn btn-success" %>
+              <%= f.submit "変更" class: "btn" %>
             </td>
             <% end %>
           </tr>
