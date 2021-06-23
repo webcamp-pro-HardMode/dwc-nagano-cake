@@ -119,6 +119,14 @@ body {
   opacity: .7;
 }
 
+// バリデーションエラー時
+.field_with_errors {
+  display: contents;
+  input {
+    @extend .is-invalid;
+  }
+}
+
 // フッターレイアアウト
 footer {
   height: 100px;
