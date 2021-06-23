@@ -1,6 +1,7 @@
 <div class="row">
 	<h1>注文情報確認</h1>
 	<div class="row">
+		<%= form_with url: orders_path, method: :post, local: true do |f| %>
 		<div class="col" >
 			<table class="table">
 					<thead>
@@ -11,8 +12,9 @@
 							<th>小計</th>
 						</tr>
 					</thead>
-				  <% @cart_items.each do |cart_item| %>
 					<tbody>
+						<% @sum = 0 %>
+				  <% @cart_items.each do |cart_item| %>
 						<tr>
 							<td>
 								<%= attachment_image_tag cart_item.item, :image, fallback: "no_image.jpg", size: "30x30" %>
@@ -20,17 +22,18 @@
 							</td>
 							<td>
 							  <!--小数を整数に四捨五入する場合round-->
-								<%= (cart_item.item.price*1.1)round %>
+								<%= cart_item.item.price * 1.1 %>
 							</td>
 							<td>
 								<%= cart_item.count %>
 							</td>
 							<td>
-								<%= (cart_item.item.price*1.1*cart_item.count)round %>
+								<%= cart_item.item.price * 1.1 * cart_item.count %>
 							</td>
 						</tr>
-					</tbody>
+						<% @sum += (cart_item.item.price * 1.1) * cart_item.count %>
 				  <% end %>
+					</tbody>
 				</table>
 			</div>
 			<div class="col">
@@ -38,15 +41,15 @@
 					<thead>
 						<tr>
 							<th>送料</th>
-							<td><%= @order.shipping_cost%></td>
+							<td><%= @order.shipping_cost %></td>
 						</tr>
 						<tr>
 							<th>商品合計</th>
-							<td><%= (@total_price*1.1).round %></td>
+							<td><%= @sum %></td>
 						</tr>
 						<tr>
 							<th>合計金額</th>
-							<td><%= ((@total_price*1.1).round %></td>
+							<td><%= @sum + @order.shipping_cost %></td>
 						</tr>
 					</thead>
 				</table>
@@ -54,7 +57,11 @@
 		</div>
 	<div class="row">
 			<h4>支払情報</h4>
+			<%= @order.payment_method %>
 			<h4>お届け先</h4>
-			<%= f.submit '購入を確定する', class: "btn btn-success" %>
+			<%= @order.postal_code + @order.address %><br>
+			<%= @order.name %>
 	</div>
+			<%= f.submit '購入を確定する', class: "btn btn-success" %>
+			<% end %>
 	</div>
