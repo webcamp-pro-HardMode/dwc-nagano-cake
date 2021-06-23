@@ -20,14 +20,22 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to admin_item_path(@item)
+    if @item.save
+      redirect_to admin_item_path(@item), notice: '商品を登録しました'
+    else
+      @genres = Genre.all
+      render :new
+    end
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to admin_item_path(@item)
+    if @item.update(item_params)
+      redirect_to admin_item_path(@item), notice: '商品を更新しました'
+    else
+      @genres = Genre.all
+      render :edit
+    end
   end
 
   private
