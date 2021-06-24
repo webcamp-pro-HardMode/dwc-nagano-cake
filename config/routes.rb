@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :genres, only:  [ :index, :create, :update, :edit]
     resources :customers, only:  [ :index, :show, :update, :edit]
     resources :orders, only: [:show, :update]
-    patch '/order_items/:id' => 'orders_items#update'
+    patch '/order_items/:id' => 'order_items#update', as: :order_item_update
   end
 
 end
