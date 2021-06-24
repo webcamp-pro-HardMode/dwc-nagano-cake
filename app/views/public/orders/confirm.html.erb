@@ -22,13 +22,13 @@
 							</td>
 							<td>
 							  <!--小数を整数に四捨五入する場合round-->
-								<%= cart_item.item.price * 1.1 %>
+								<%= (cart_item.item.price * 1.1).round(-1) %>
 							</td>
 							<td>
 								<%= cart_item.count %>
 							</td>
 							<td>
-								<%= cart_item.item.price * 1.1 * cart_item.count %>
+								<%= (cart_item.item.price * 1.1 * cart_item.count).round(-1) %>
 							</td>
 						</tr>
 						<% @sum += (cart_item.item.price * 1.1) * cart_item.count %>

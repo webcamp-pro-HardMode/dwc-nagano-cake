@@ -79,7 +79,9 @@ class Public::OrdersController < ApplicationController
       @order_items.quantity = cart_item.count
       @order_items.save
     end
-
+    
+    @cart_items.destroy_all
+    
     redirect_to orders_after_path
 
   end
