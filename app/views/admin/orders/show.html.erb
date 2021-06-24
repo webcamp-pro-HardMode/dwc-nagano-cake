@@ -22,16 +22,17 @@
         <td>支払方法</td>
         <td><%= @order.payment_method %></td>
       </tr>
-      <%= form_with model: @order, url: admin_order_path, local: true do |f| %>
+      <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
       <tr>
         <td>注文ステータス</td>
-        <td><%= f.select :order, options_for_select(Order.statuses.keys) %></td>
+        <td><%= f.select :status, Order.statuses.keys %></td>
         <td><%= f.submit "更新", class: "btn" %></td>
       </tr>
       <% end %>
     </table>
     </div>
     <!--購入商品-->
+    <div class="row">
     <div class="col-9">
       <table class='table'>
         <thead>
@@ -45,24 +46,28 @@
           </tr>
         </thead>
         <tbody>
-          <!--<%#= @order_items.each do |order_item| %>-->
+          <% @order_items.each do |order_item| %>
           <tr>
-            <td>洋梨のチーズタルト</td>
-            <!--<%#= order_item.item.name %>-->
-            <td>1,320</td>
-            <!--<%#= order_item %>-->
-            <td>1</td>
-            <!--<%#= order_item.quantity %>-->
-            <td>1,320</td>
-            <!--<%#= order_item.price %>-->
-            <%#= form_with model: [:admin, @order_item], method: :patch, local: true do |f| %>
-            <td><%#= f.select :order_status, OrderItem.order_statuses.keys.map %></td>
             <td>
-              <%#= f.submit "変更" class: "btn" %>
+            <%= order_item.item.name %>
             </td>
-            <%# end %>
+            <td>
+            <%= order_item.item.price %>(<%= (order_item.item.price * 1.1).round(-1) %>)
+            </td>
+            <td>
+            <%= order_item.quantity %>
+            </td>
+            <td>
+              <%= (order_item.item.price * 1.1).round(-1) * order_item.quantity %>
+            </td>
+            <%= form_with model: order_item, url: admin_order_item_update_path(order_item.id), method: :patch, local: true do |f| %>
+            <td><%= f.select :order_status, OrderItem.order_statuses.keys %></td>
+            <td>
+              <%= f.submit "変更", class: "btn" %>
+            </td>
+            <% end %>
           </tr>
-          <!--<%# end %>-->
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -86,6 +91,7 @@
         </tr>
         <!--<%# end %>-->
       </table>
+    </div>
     </div>
   </div>
 </div>

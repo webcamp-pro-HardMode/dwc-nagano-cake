@@ -1,4 +1,4 @@
-
+<div class="mt-3">
   <h1>ショッピングカート</h1>
   <div class="d-flex justify-content-end">
 
@@ -27,18 +27,18 @@
                 <% @cart_items.each do |cart_item| %>
               <tr>
                 <td><%= attachment_image_tag cart_item.item, :image, size: "50x50", class:"effect" %><%= cart_item.item.name %></td>
-                <td><%= cart_item.item.price * 1.1 %></td>
+                <td><%= (cart_item.item.price * 1.1).round(-1) %></td>
                 <!--以下修正する-->
                 <!--量-->
                 <td><%= form_with model: @cart_item, url: cart_item_path(cart_item.id), method: :patch, local: true do |f| %>
                     <%= f.number_field :count, value: cart_item.count %>
                     <%= f.submit "変更", class: "btn" %>
                 </td>
-                <td><%= (cart_item.item.price * 1.1) * cart_item.count %></td>
+                <td><%= ((cart_item.item.price * 1.1) * cart_item.count).round(-1) %></td>
                 <td><%= link_to '削除する',cart_item_path(cart_item.id), method: :delete, class: "btn" %></td>
                 <% end %>
               </tr>
-                <% @sum += (cart_item.item.price * 1.1) * cart_item.count %>
+                <% @sum += ((cart_item.item.price * 1.1) * cart_item.count).round(-1) %>
                 <% end %>
           </tbody>
         </table>
@@ -66,4 +66,5 @@
   <div class= "col-2">
     <%= link_to "情報入力に進む", new_order_path, class: "btn" %>
   </div>
+</div>
 </div>
