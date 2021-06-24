@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.order_items
   end
 
   def confirm
@@ -50,6 +51,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+
     @orders = current_customer.orders
   end
 
@@ -66,19 +68,26 @@ class Public::OrdersController < ApplicationController
   def create
     # 注文確定となる
     # binding.pry
-    @order = Order.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
 
-    @cart_items = current_customer.cart_items.all
+
+    @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
-      @order_items = @order.order_items.new
-      @order_items.item_id = cart_item.item.id
-      @order_items.item.name = cart_item.item.name
-      @order_items.price = cart_item.item.price
+      @order_items = OrderItem.new
+      @order_items.item_id = cart_item.item_id
+      @order_items.price = cart_item.item.price * 1.1
       @order_items.quantity = cart_item.count
+      @order_items.order_id = @order.id
+      @order_items.total_price = (cart_item.item.price * 1.1) * cart_item.count
       @order_items.save
+      
+
+
     end
+      # @order_items.item.name = cart_item.item.name
+      current_customer.cart_items.destroy_all
 
     redirect_to orders_after_path
 
