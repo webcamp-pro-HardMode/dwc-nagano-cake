@@ -12,12 +12,12 @@ Rails.application.routes.draw do
     resources :addresses ,only: [ :index,:create,:update,:destroy,:edit]
     resources :items, only: [:index, :show]
     resources :cart_items ,only: [ :index,:create,:update,:destroy]
-    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    delete '/cart_items_destroy_all' => 'cart_items#destroy_all'
+    post '/orders/confirm' =>  'orders#confirm'
     resources :orders, only: [ :show, :index, :create, :new]
-    get '/orders/after' =>  'orders#after'
+    get '/orders_after' =>  'orders#after'
 
     put "/customers/update" => "customers#update", as: "customer_update"
-    post '/orders/confirm' =>  'orders#confirm'
     get "/customers/my_page/edit", to: 'customers#edit', as: :edit_mypage
     get '/customers/my_page' => 'customers#show', as: :my_page
     patch '/customers/withdraw' => 'customers#withdraw'

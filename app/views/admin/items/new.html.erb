@@ -4,42 +4,42 @@
     <div class="form">
     <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
       <dl>
-      <div class="row mb-3">
+      <div class="row mb-1">
         <%= f.label :image, "商品画像", class:"col-3 col-form-label" %>
         <div class="col-9">
           <%= f.attachment_field :image %>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-1">
         <%= f.label :name, "商品名", class:"col-3 col-form-label" %>
         <div class="col-9">
           <%= f.text_field :name, size: 40 %>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-1">
         <%= f.label :introduction, "商品説明", class:"col-3 col-form-label" %>
         <div class="col-9">
           <%= f.text_area :introduction, size: "40x3" %>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-1">
         <%= f.label :genre_id, "ジャンル", class:"col-3 col-form-label" %>
         <div class="col-9">
           <%= f.collection_select(:genre_id, @genres, :id, :name) %>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-1">
         <%= f.label :price, "税抜価格", class:"col-3 col-form-label" %>
         <div class="col-9">
           <%= f.text_field :price, size: 40 %>
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-1">
         <%= f.label :is_status, "販売ステータス", class:"col-3 col-form-label" %>
         <div class="col-9">
           <%= f.radio_button :is_status, true %>
