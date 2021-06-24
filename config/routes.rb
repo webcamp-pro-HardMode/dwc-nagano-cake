@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     resources :cart_items ,only: [ :index,:create,:update,:destroy]
     delete '/cart_items_destroy_all' => 'cart_items#destroy_all'
     post '/orders/confirm' =>  'orders#confirm'
-    resources :orders, only: [ :index, :create, :new]
-    get '/orders/after' =>  'orders#after'
+    resources :orders, only: [ :show, :index, :create, :new]
+    get '/orders_after' =>  'orders#after'
 
     put "/customers/update" => "customers#update", as: "customer_update"
     get "/customers/my_page/edit", to: 'customers#edit', as: :edit_mypage
