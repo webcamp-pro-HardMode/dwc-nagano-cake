@@ -1,66 +1,80 @@
-<div class="container">
-  <div class="row login_box">
-    <div class="col-md-12 col-xs-12">
-
-      <h4>
-        <%= current_customer.family_name + current_customer.first_name %> さんの会員情報編集
-      </h4></br>
-      <%= render 'layouts/errors', obj: @customer %>
-
-      <%= form_with(model: @customer, url:customer_update_path, local: true, method: :put) do |f| %>
-      <div class="field">氏名&emsp;&emsp;
+<div class="row justify-content-center">
+  <div class="col-9 my-3">
+    <h4 class="col-lg-4 col-sm-5 mt-4 text-center">
+      <%= current_customer.family_name + current_customer.first_name %> さんの会員情報編集
+      </h4>
+  </div>
+  
+  <div class="row">
+    <%= render 'layouts/errors', obj: @customer %>
+    <%= form_with(model: @customer, url:customer_update_path, local: true, method: :put) do |f| %>
+      <div class="row">
+      <div class="field">氏名
         <%= f.label  "(性)" %>
-        <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>&emsp;&emsp;
+        <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
          <%= f.label  "(名)" %>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
       </div>
+      </div>
 
-      <div class="field">フリガナ&emsp;&emsp;
+      <div class="row">
+      <div class="field">フリガナ
         <%= f.label  "(セイ)" %>
-        <%= f.text_field :kana_sei, autofocus: true, autocomplete: "kana_sei" %>&emsp;&emsp;
+        <%= f.text_field :kana_sei, autofocus: true, autocomplete: "kana_sei" %>
         <%= f.label  "(メイ)" %>
         <%= f.text_field :kana_mei, autofocus: true, autocomplete: "kana_mei" %>
       </div>
+       </div>
 
-      <div class="field">
-        <%= f.label "郵便番号" %>&emsp;&emsp;
+     <div class="row">
+     <div class="field">
+        <%= f.label "郵便番号" %>
         <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
       </div>
+       </div>
 
+      <div class="row">
       <div class="field">
-        <%= f.label "住所" %>&emsp;&emsp;
+        <%= f.label "住所" %>
         <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
       </div>
+       </div>
 
+      <div class="row">
       <div class="field">
-        <%= f.label "電話番号" %>&emsp;&emsp;
+        <%= f.label "電話番号" %>
         <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
       </div>
+       </div>
 
+      <div class="row">
       <div class="field">
-        <%= f.label "メールアドレス" %>&emsp;&emsp;
+        <%= f.label "メールアドレス" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
+       </div>
 
+      <div class="row">
       <div class="status">
-        <%= f.label "会員ステータス" %>&emsp;&emsp;
+        <%= f.label "会員ステータス" %>
           <!--ラジオボタンで選択（false：有効）-->
           <%= f.radio_button :is_exist, :false %>
-          <%= f.label :is_exist, '有効', value: :false %> &nbsp;&nbsp;
+          <%= f.label :is_exist, '有効', value: :false %>
           <!--ラジオボタンで選択（true：退会）-->
           <%= f.radio_button :is_exist, :true %>
           <%= f.label :is_exist, '退会', value: :true %>
       </div>
+       </div>
 
+      <div class="row">
       <div class="field">
-        <%= f.submit  "変更を保存", class: "btn btn-success" %>&emsp;&emsp;
+        <%= f.submit  "変更を保存", class: "btn btn-success" %>
         <%= link_to "退会する", customers_change_path, class: "btn btn-danger" %>
       </div>
+       </div>
 
       <% end %>
 
-
-    </div>
   </div>
 </div>
 
