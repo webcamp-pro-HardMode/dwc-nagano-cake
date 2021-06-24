@@ -5,6 +5,7 @@
       <h4>
         <%= current_customer.family_name + current_customer.first_name %> さんの会員情報編集
       </h4></br>
+      <%= render 'layouts/errors', obj: @customer %>
 
       <%= form_with(model: @customer, url:customer_update_path, local: true, method: :put) do |f| %>
       <div class="field">氏名&emsp;&emsp;
