@@ -1,5 +1,5 @@
 <% if obj.errors.any? %>
-  <div id="error_explanation">
+  <div class="alert alert-warning">
     <h3><%= pluralize(obj.errors.count, "箇所") %> のエラーがある為、保存できません</h3>
     <ul>
       <% obj.errors.full_messages.each do |message| %>

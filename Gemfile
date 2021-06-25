@@ -58,4 +58,6 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'rubocop'
 gem 'jp_prefecture'
+
+# Railsを日本語で使うgem
 gem 'rails-i18n', '~> 5.1' 

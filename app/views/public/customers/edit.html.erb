@@ -1,82 +1,90 @@
-<div class="row">
-  <div class="col-7 mx-auto">
+<div class="row mt-3">
+  <div class="col-6 mx-auto">
 
-    <div>
+    <div class="mb-5">
       <h4>
         <%= current_customer.family_name + current_customer.first_name %> さんの会員情報編集
-      </h4>                            
+      </h4>
     </div>
-    <div>                         
+
+    <div>
     <%= render 'layouts/errors', obj: @customer %>
     <%= form_with model: @customer, url:customer_update_path, local: true, method: :put do |f| %>
 
-    <div class="row">        
-    <div>
-        <%= f.label  "氏名"                                                                                                                                                                                                                                        %>
-        <div class="col-2">
-        <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+    <div class="form-group row">
+      <div class="col-md-3">
+        <%= f.label  "氏名" , class: "col-form-label" %>
+      </div>
+      <div class="col-md-7">
+        <div style="display:inline-flex">
+          <div class="mx-3">
+            <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: "form-control" %>
+          </div>
+          <div class="mx-3">
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+          </div>
         </div>
       </div>
-      </div>
+    </div>
 
-    <div class="row">
-    <div class="col-7">
-    <div class="form-group">フリガナ
-        <%= f.label  "(セイ)" %>
-        <%= f.text_field :kana_sei, autofocus: true, autocomplete: "kana_sei" %>
-        <%= f.label  "(メイ)" %>
-        <%= f.text_field :kana_mei, autofocus: true, autocomplete: "kana_mei", class: "form-control" %>
+    <div class="form-group row">
+      <div class="col-md-3">
+        <%= f.label "フリガナ", class: "form-group-label" %>
       </div>
+      <div class="col-md-7">
+        <div style="display:inline-flex">
+          <div class="mx-3">
+            <%= f.text_field :kana_sei, autofocus: true, autocomplete: "kana_sei", class: "form-control" %>
+          </div>
+          <div class="mx-3">
+            <%= f.text_field :kana_mei, autofocus: true, autocomplete: "kana_mei", class: "form-control" %>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
 
-     <div class="row">
-    <div class="col-7">
-    <div class="form-group">
-
-        <%= f.label "郵便番号" %>
+    <div class="form-group row">
+      <div class="col-md-3">
+        <%= f.label "郵便番号", class:  %>
+      </div>
+      <div class="col-md-7">
         <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "form-control" %>
       </div>
-      </div>
-      </div>
+    </div>
 
-    <div class="row">
-    <div class="col-7">
-    <div class="form-group">
-
+    <div class="form-group row">
+      <div class="col-md-3">
         <%= f.label "住所" %>
+      </div>
+      <div class="col-md-7">
         <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
       </div>
-      </div>
-      </div>
+    </div>
 
 
-    <div class="row">
-    <div class="col-7">
-    <div class="form-group">
-
+    <div class="form-group row">
+      <div class="col-md-3">
         <%= f.label "電話番号" %>
+      </div>
+      <div class="col-md-7">
         <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
       </div>
-      </div>
-      </div>
+    </div>
 
-    <div class="row">
-    <div class="col-7">
-    <div class="form-group">
-
+    <div class="form-group row">
+      <div class="col-md-3">
         <%= f.label "メールアドレス" %>
+      </div>
+      <div class="col-md-7">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
-      </div>
-      </div>
+    </div>
 
-    <div class="row">
-    <div class="col-7">
-    <div class="form-group">
-
+    <div class="form-group row">
+      <div class="col-md-3">
         <%= f.label "会員ステータス" %>
+      </div>
+      <div class="col-md-7">
           <!--ラジオボタンで選択（false：有効）-->
           <%= f.radio_button :is_exist, :false %>
           <%= f.label :is_exist, '有効', value: :false %>
@@ -84,22 +92,21 @@
           <%= f.radio_button :is_exist, :true %>
           <%= f.label :is_exist, '退会', value: :true %>
       </div>
-      </div>
-      </div>
+    </div>
 
 
     <div class="row">
-      <div class="col-7">
-      <div class="field">
-        <%= f.submit  "変更を保存", class: "btn btn-success" %>
-        <%= link_to "退会する", customers_change_path, class: "btn btn-danger" %>
+      <div class="col-12 text-right">
+        <div class="field">
+          <%= f.submit  "変更を保存", class: "btn mx-3" %>
+          <%= link_to "退会する", customers_change_path, class: "btn mx-3" %>
+        </div>
       </div>
     </div>
-  </div>
 
+    <% end %>
+    </div>
 
-  <% end %>
-  </div>
   </div>
 </div>
 
