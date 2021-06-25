@@ -1,4 +1,4 @@
-<div class="row mt-3">
+<div class="row mt-5">
   <div class="col-6 mx-auto">
 
     <div class="mb-5">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group row">
-      <div class="col-md-3">
+      <div class="col-md-3 d-flex align-items-center">
         <%= f.label "フリガナ", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
@@ -44,8 +44,8 @@
     </div>
 
     <div class="form-group row">
-      <div class="col-md-3">
-        <%= f.label "郵便番号", class:  %>
+      <div class="col-md-3 d-flex align-items-center">
+        <%= f.label "郵便番号", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
         <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "form-control" %>
@@ -53,8 +53,8 @@
     </div>
 
     <div class="form-group row">
-      <div class="col-md-3">
-        <%= f.label "住所" %>
+      <div class="col-md-3 d-flex align-items-center">
+        <%= f.label "住所", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
         <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
@@ -63,8 +63,8 @@
 
 
     <div class="form-group row">
-      <div class="col-md-3">
-        <%= f.label "電話番号" %>
+      <div class="col-md-3 d-flex align-items-center">
+        <%= f.label "電話番号", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
         <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
@@ -72,8 +72,8 @@
     </div>
 
     <div class="form-group row">
-      <div class="col-md-3">
-        <%= f.label "メールアドレス" %>
+      <div class="col-md-3 d-flex align-items-center">
+        <%= f.label "メールアドレス", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -81,8 +81,8 @@
     </div>
 
     <div class="form-group row">
-      <div class="col-md-3">
-        <%= f.label "会員ステータス" %>
+      <div class="col-md-3 d-flex align-items-center">
+        <%= f.label "会員ステータス", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
           <!--ラジオボタンで選択（false：有効）-->
