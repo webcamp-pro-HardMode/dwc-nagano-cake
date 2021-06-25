@@ -1,5 +1,5 @@
-<div class="row">
 	<h1>注文情報確認</h1>
+<div class="row">
 	<div class="row">
 		<%= form_with url: orders_path, method: :post, local: true do |f| %>
 		<div class="col" >
@@ -22,13 +22,13 @@
 							</td>
 							<td>
 							  <!--小数を整数に四捨五入する場合round-->
-								<%= cart_item.item.price * 1.1 %>
+								<%= (cart_item.item.price * 1.1).round(-1) %>
 							</td>
 							<td>
 								<%= cart_item.count %>
 							</td>
 							<td>
-								<%= cart_item.item.price * 1.1 * cart_item.count %>
+								<%= (cart_item.item.price * 1.1 * cart_item.count).round(-1) %>
 							</td>
 						</tr>
 						<% @sum += (cart_item.item.price * 1.1) * cart_item.count %>
@@ -54,14 +54,19 @@
 					</thead>
 				</table>
 			</div>
-		</div>
-	<div class="row">
-			<h4>支払情報</h4>
-			<%= @order.payment_method %>
-			<h4>お届け先</h4>
-			<%= @order.postal_code + @order.address %><br>
-			<%= @order.name %>
 	</div>
+
+</div>
+<div class="row">
+		<h4>支払情報</h4>
+		<%= @order.payment_method %><br>
+</div>
+<div class="row">
+		<h4>お届け先</h4>
+		<%= @order.postal_code %>
+		<%= @order.address %><br>
+		<%= @order.name %>
+</div>
 
 			<!--ユーザに直接入力させることなく何かの値の受け渡しを行いたいf.hidden_field-->
 			<%= f.hidden_field :name, value: @order.name %>
@@ -75,11 +80,10 @@
 			<%#= f.hidden_field :total_cost value: @sum + @order.shipping_cost %>
 
 
-			<div class="">
-			<%= f.submit '購入を確定する', class: "btn btn-success" %>
-			</div>
+	<div class="row">
+		<%= f.submit '購入を確定する', class: "btn btn-success" %>
+	</div>
 
 
 
 			<% end %>
-	</div>

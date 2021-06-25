@@ -29,12 +29,12 @@
             <!--商品名-->
             <td>
               <% order.order_items.each do |order_item| %>
-                <%= order.order_item.name %>
+                <%= order_item.item.name %><br>
               <% end %>
             </td>
             <!--支払い金額-->
             <td>
-              <%= order.total_cost %>
+              ¥<%= order.total_cost.to_s(:delimited) %>
             </td>
             <!--注文状態-->
             <td>

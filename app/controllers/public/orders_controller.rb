@@ -1,6 +1,13 @@
 class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.order_items
+
+    @sum = 0
+    @order_items.each do |order_item|
+      order_item.total_price
+      @sum += order_item.total_price
+    end
   end
 
   def confirm
@@ -26,13 +33,15 @@ class Public::OrdersController < ApplicationController
 
     # ラジオボタンが押下されたとき（２）新規の宛先に送る
     elsif params[:order][:address_no] == "2"
-      @address = Address.new
+      # binding.pry
+      @address =Address.new(address_params)
       @address.customer_id = current_customer.id
       @address.save
 
       @order.name = @address.name
       @order.postal_code = @address.postal_code
-      @order.address =  @address.street_address
+      @order.address =  @address.address
+      @order.customer_id = @address.customer_id
 
     end
 
@@ -50,6 +59,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+
     @orders = current_customer.orders
   end
 
@@ -66,20 +76,29 @@ class Public::OrdersController < ApplicationController
   def create
     # 注文確定となる
     # binding.pry
-    @order = Order.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
 
-    @cart_items = current_customer.cart_items.all
-    @cart_items.each do |cart_item|
-      @order_items = @order.order_items.new
-      @order_items.item_id = cart_item.item.id
-      @order_items.item.name = cart_item.item.name
-      @order_items.price = cart_item.item.price
-      @order_items.quantity = cart_item.count
-      @order_items.save
-    end
 
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+      @order_items = OrderItem.new
+      @order_items.item_id = cart_item.item_id
+      @order_items.price = cart_item.item.price * 1.1
+      @order_items.quantity = cart_item.count
+      @order_items.order_id = @order.id
+      @order_items.total_price = (cart_item.item.price * 1.1) * cart_item.count
+      @order_items.save
+
+
+
+    end
+      # @order_items.item.name = cart_item.item.name
+      current_customer.cart_items.destroy_all
+      
+      @address = Address.new
+      
     redirect_to orders_after_path
 
   end
@@ -92,5 +111,9 @@ class Public::OrdersController < ApplicationController
 #     def order_params
 # 		params.require(:order).permit(:postal_code, :address, :name, :payment_method, :shipping_fee, :total_price, :status)
 # 	end
+
+   def address_params
+      params.require(:address).permit(:name, :postal_code, :address)
+    end
 
 end

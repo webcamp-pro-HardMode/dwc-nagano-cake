@@ -11,7 +11,7 @@
           <%= item.name %><br>
         </div>
         <div class="mt-2 offset-2">
-      　  <%= item.price + item.price * 0.1 %>
+      　 ¥<%= ((BigDecimal(item.price) * BigDecimal("1.1")).ceil).to_s(:delimited) %>
       　</div>
       </div>
     <% end %>
