@@ -33,12 +33,12 @@
         <tbody>
           <% @addresses.each do |address| %>
           <tr>
-            <td class="center"><%= address.postal_code %></td>
+            <td class="center">〒<%= address.postal_code %></td>
             <td class="center"><%= address.address %></td>
             <td class="center"><%= address.name %></td>
-            <td>
-              <%= link_to '編集する', edit_address_path(address), class: "btn mx-2", style: "height:40px width:100px" %>
-              <%= link_to "削除する", address_path(address), class: "btn mx-2", style: "height:40px width:100px", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <td class="center">
+              <%= link_to '編集する', edit_address_path(address), class: "btn mx-2", style:"width:80px;line-height:30px;padding:0;" %>
+              <%= link_to "削除する", address_path(address), class: "btn mx-2", style:"width:80px;line-height:30px;padding:0;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
             </td>
           </tr>
           <% end %>
