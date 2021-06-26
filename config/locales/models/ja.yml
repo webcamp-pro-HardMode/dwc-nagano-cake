@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      customer: お客様
+    attributes:
+      customer:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        password: パスワード
+        first_name: 氏名(名)
+        family_name: 氏名(性)
+        kana_sei: カナ(性)
+        kana_mei: カナ(名)
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        email: メールアドレス
