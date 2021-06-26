@@ -2,12 +2,6 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_items
-
-    @sum = 0
-    @order_items.each do |order_item|
-      order_item.total_price
-      @sum += order_item.total_price
-    end
   end
 
   def confirm

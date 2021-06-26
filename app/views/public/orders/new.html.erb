@@ -34,19 +34,38 @@
            <%= f.label :address_no, '新しいお届け先' %>
         </div>
 
-      <div class="form-group row mb-3 ml-3">
-        <%= "郵便番号(ハイフンなし)" %><%= text_field_tag 'address[postal_code]' %>
-      </div>
-      <div class="form-group row mb-3 ml-3">
-        <%= "住所" %><%= text_field_tag 'address[address]' %>
-      </div>
-      <div class="form-group row mb-3 ml-3">
-        <%= "宛名" %><%= text_field_tag 'address[name]' %>
+      <div class="form-group row ">
+        
+        <div class="col-2 pr-0">
+        <%= "郵便番号(ハイフン無し）" %>
+        </div>
+        <div class="col-6 pl-0">
+        <%= text_field_tag 'address[postal_code]' %>
+        </div>
       </div>
       
-              
-        
+      <div class="form-group row ">
+        <div class="col-2">
+        <%= "住所" %>
+        </div>
+        <div class="col-6 pl-0">
+        <%= text_field_tag 'address[address]', "", {size: "50"} %>
+        </div>
+      </div>
+      <div class="form-group row ">
+        <div class="col-2 pr-0">
+        <%= "宛名" %>
+        </div>
+        <div class="col-4 pl-0">
+        <%= text_field_tag 'address[name]' %>
+        </div>
+      </div>
+      
+  <div class="row" style="height: 50px;"></div>
+	<div class="text-md-center">
            <%= f.submit "確認画面に進む", class: "btn" %>
       <% end %>
+	</div>
+        
     </div>
   </div>
