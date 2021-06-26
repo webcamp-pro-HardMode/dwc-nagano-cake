@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  
+  before_action :authenticate_customer!
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_items
@@ -91,9 +91,9 @@ class Public::OrdersController < ApplicationController
     end
       # @order_items.item.name = cart_item.item.name
       current_customer.cart_items.destroy_all
-      
+
       @address = Address.new
-      
+
     redirect_to orders_after_path
 
   end
