@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
     @order_items = @order.order_items
     @total = 0
     @order_items.each do |order_item| 
-      @total += (order_item.item.price * 1.1).round(-1) * order_item.quantity
+      @total += (order_item.item.price * 1.1).round(0) * order_item.quantity
     end
     # binding.pry
   end

@@ -59,13 +59,13 @@
                 <%= order_item.item.name %>
                 </td>
                 <td>
-                <%= order_item.item.price.to_s(:delimited) %>(<%= (order_item.item.price * 1.1).round(-1).to_s(:delimited) %>)
+                <%= order_item.item.price.to_s(:delimited) %>(<%= (order_item.item.price * 1.1).round(0).to_s(:delimited) %>)
                 </td>
                 <td>
                 <%= order_item.quantity %>
                 </td>
                 <td>
-                  <%= ((order_item.item.price * 1.1).round(-1) * order_item.quantity).to_s(:delimited) %>
+                  <%= ((order_item.item.price * 1.1).round(0) * order_item.quantity).to_s(:delimited) %>
                 </td>
                 <%= form_with model: order_item, url: admin_order_item_update_path(order_item.id), method: :patch, local: true do |f| %>
                 <td><%= f.select :order_status, OrderItem.order_statuses.keys %></td>

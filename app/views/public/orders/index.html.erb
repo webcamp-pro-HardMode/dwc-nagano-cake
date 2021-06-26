@@ -34,7 +34,7 @@
             </td>
             <!--支払い金額-->
             <td>
-              ¥<%= order.total_cost.to_s(:delimited) %>
+              ¥<%= (order.total_cost + order.shipping_cost).to_s(:delimited) %>
             </td>
             <!--注文状態-->
             <td>
