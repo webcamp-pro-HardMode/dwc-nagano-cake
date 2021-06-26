@@ -1,5 +1,5 @@
 <div class="row mt-5">
-  <div class="col-md- mx-auto">
+  <div class="col-9 mx-auto">
 
     <h4 class="mt-5">新規会員登録</h4></br>
 
@@ -8,15 +8,15 @@
 
     <div class="form-group row">
       <div class="col-md-3">
-        <%= f.label  "氏名", class: "col-from-label" %>
+        <%= f.label  "氏名（姓・名）", class: "col-from-label" %>
       </div>
       <div class="col-md-7">
         <div style="display:inline-flex">
           <div>
-            <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: "form-control" %>
+            <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: "form-control", placeholder: "令和" %>
           </div>
           <div class="mx-3">
-            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control", placeholder: "道子" %>
           </div>
         </div>
       </div>
@@ -24,15 +24,15 @@
 
     <div class="form-group row">
       <div class="col-md-3 d-flex align-items-center">
-        <%= f.label  "フリガナ", class: "form-group-label" %>
+        <%= f.label  "フリガナ（セイ・メイ）", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
         <div style="display:inline-flex">
           <div>
-            <%= f.text_field :kana_sei, autofocus: true, autocomplete: "kana_sei", class: "form-control" %>
+            <%= f.text_field :kana_sei, autofocus: true, autocomplete: "kana_sei", class: "form-control", placeholder: "レイワ" %>
           </div>
           <div class="mx-3">
-           <%= f.text_field :kana_mei, autofocus: true, autocomplete: "kana_mei", class: "form-control" %>
+            <%= f.text_field :kana_mei, autofocus: true, autocomplete: "kana_mei", class: "form-control", placeholder: "ミチコ" %>
           </div>
         </div>
       </div>
@@ -43,16 +43,16 @@
         <%= f.label "メールアドレス", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "sample@example@gmail.com" %>
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-md-3 d-flex align-items-center">
-        <%= f.label "郵便番号", class: "form-group-label" %>
+        <%= f.label "郵便番号(ハイフンなし)", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
-        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "form-control" %>
+        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "form-control", placeholder: "0000000" %>
       </div>
     </div>
 
@@ -61,16 +61,16 @@
         <%= f.label "住所", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
-        <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control", placeholder: "東京都渋谷区代々木神園町0-0" %>
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-md-3 d-flex align-items-center">
-        <%= f.label "電話番号", class: "form-group-label" %>
+        <%= f.label "電話番号(ハイフンなし)", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
-        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control", placeholder: "0000000000" %>
       </div>
     </div>
 
@@ -82,7 +82,7 @@
         <% end %>
       </div>
       <div class="col-md-7">
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "６文字以上で入力してください" %>
       </div>
     </div>
 
@@ -91,7 +91,7 @@
         <%= f.label "パスワード（確認用）", class: "form-group-label" %>
       </div>
       <div class="col-md-7">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "６文字以上で入力してください" %>
       </div>
     </div>
 
