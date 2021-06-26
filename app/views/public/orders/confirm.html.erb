@@ -21,13 +21,13 @@
 		</td>
 		<td>
 		<!--小数を整数に四捨五入する場合round-->
-			<%= (cart_item.item.price * 1.1).round(-1).to_s(:delimited, delimiter: ',') %>
+			<%= (cart_item.item.price * 1.1).round(0).to_s(:delimited, delimiter: ',') %>
 		</td>
 		<td>
 			<%= cart_item.count %>
 		</td>
 		<td>
-			<%= (cart_item.item.price * 1.1 * cart_item.count).round(-1).to_s(:delimited, delimiter: ',') %>
+			<%= (cart_item.item.price * 1.1 * cart_item.count).round(0).to_s(:delimited, delimiter: ',') %>
 		</td>
 		</tr>
 		<% @sum += (cart_item.item.price * 1.1) * cart_item.count %>
@@ -44,11 +44,11 @@
 		</tr>
 		<tr>
 			<th>商品合計</th>
-			<td><%= (@sum).round(-1).to_s(:delimited, delimiter: ',') %></td>
+			<td><%= (@sum).round(0).to_s(:delimited, delimiter: ',') %></td>
 		</tr>
 		<tr>
 			<th>請求金額</th>
-			<td><%= (@sum + @order.shipping_cost).round(-1).to_s(:delimited, delimiter: ',')%></td>
+			<td><%= (@sum + @order.shipping_cost).round(0).to_s(:delimited, delimiter: ',')%></td>
 		</tr>
 	</thead>
  </table>

@@ -19,9 +19,11 @@
       <% @items.each do |item| %>
         <table class="item-container m-4 col-2">
           <tr>
+            <td>
             <%= link_to item_path(item.id) do %>
-              <td><%= attachment_image_tag item, :image, size: "200x200", class:"effect" %></td>
+              <%= attachment_image_tag item, :image, size: "200x200", class:"effect" %>
             <% end %>
+            </td>
           </tr>
           <tr>
             <td><%= item.name %></td>
