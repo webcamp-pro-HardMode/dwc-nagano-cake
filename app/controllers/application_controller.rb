@@ -2,12 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # deviseにまつわる画面に行った時に全ての画面でconfigure_permitted_parametersが起動
   before_action :configure_permitted_parameters , if: :devise_controller?
-  
+
   #ログイン後の遷移先
   def after_sign_in_path_for(resource)
     case resource
     when Admin
-      orders_path
+      admin_path
     when Customer
       my_page_path
     end
