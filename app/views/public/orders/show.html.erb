@@ -42,7 +42,7 @@
           <tr>
             <th>商品合計</th>
             <td>
-              ¥<%= @sum.to_s(:delimited) %>
+              ¥<%= @order.total_cost.to_s(:delimited) %>
             </td>
           </tr>
           <tr>
