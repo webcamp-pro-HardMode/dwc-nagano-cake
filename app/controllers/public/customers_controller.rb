@@ -9,8 +9,11 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    redirect_to my_page_path
+    if @customer.update(customer_params)
+      redirect_to my_page_path, notice: '会員情報を更新しました。'
+    else
+      render :edit
+    end
   end
 
   #退会確認画面
@@ -32,7 +35,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-      params.require(:customer).permit(:family_name, :first_name, :kana_sei, :kana_mei, :postal_code, :address, :phone_number, :is_exist)
+      params.require(:customer).permit(:family_name, :first_name, :kana_sei, :kana_mei, :postal_code, :address, :phone_number, :is_exist, :email)
   end
 
 end
