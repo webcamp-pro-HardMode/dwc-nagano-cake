@@ -1,24 +1,29 @@
-# README
+# Nagano Cake チーム→HardMode
+チーム開発で作成したECサイト RubyOnRailsを中心に作成
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#設計（ER図）
+![ER](/images/ER.png)
 
-Things you may want to cover:
+#アプリケーション詳細設計
+##管理者
 
-* Ruby version
+##会員
 
-* System dependencies
 
-* Configuration
+#使用したgem
 
-* Database creation
+```
+gem 'devise'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'kaminari','~> 1.2.1'
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'rubocop'
+gem 'jp_prefecture'
 
-* Database initialization
+# Railsを日本語で使うgem
+gem 'rails-i18n', '~> 5.1'
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
