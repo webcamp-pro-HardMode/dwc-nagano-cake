@@ -2,7 +2,7 @@
 チーム開発で作成したECサイト RubyOnRailsを中心に作成
 
 #設計（ER図）
-![ER](assets/ER.png)
+![ER.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/fa2c4ea6-7a2e-9822-5b2a-5cec5827aeb5.png)
 
 #アプリケーション詳細設計
 ##管理者
