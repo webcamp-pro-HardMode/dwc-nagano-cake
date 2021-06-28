@@ -2,7 +2,7 @@
 チーム開発で作成したECサイト RubyOnRailsを中心に作成
 
 #設計（ER図）
-![ER](assets/images/ER.png)
+![ER](assets/ER.png)
 
 #アプリケーション詳細設計
 ##管理者
